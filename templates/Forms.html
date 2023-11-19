@@ -1,0 +1,89 @@
+<div className="form-container">
+    <form className="registration-form">
+      <h2>Register</h2>
+      <label htmlFor="userName">User Name</label>
+      <input type="text" id="userName" name="userName" placeholder="Enter user name" required />
+
+      <label htmlFor="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" required />
+
+      <label htmlFor="city">City</label>
+      <input type="text" id="city" name="city" placeholder="Enter your city" required />
+
+      <label htmlFor="neighborhood">Neighborhood</label>
+      <input type="text" id="neighborhood" name="neighborhood" placeholder="Enter your neighborhood" required />
+
+      <label htmlFor="pictureUrl">Picture URL</label>
+      <input type="text" id="pictureUrl" name="pictureUrl" placeholder="Enter picture URL" required />
+
+      <label htmlFor="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required />
+
+      <label htmlFor="rePassword">Repeat Password</label>
+      <input type="rePassword" id="rePassword" name="rePassword" placeholder="Enter your password again" required />
+
+      <p>
+        Already have account? <a href="#">Login</a>
+      </p>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  {/* Login */}
+
+  <div className="form-container">
+    <form className="login-form">
+      <h2>Login</h2>
+      <label htmlFor="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label htmlFor="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <p>
+        Don't have an account? <a href="#">Register</a>
+      </p>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  {/* Create */}
+
+  <div className="form-container">
+    <form className="create-edit-form">
+      <h2>Create/Edit</h2>
+      <label htmlFor="productName">Product Name</label>
+      <input type="text" id="productName" name="productName" placeholder="Enter product name" required />
+
+      <label htmlFor="type">Type</label>
+      <select id="type" name="type" required>
+        <option value="Clothes">Clothes</option>
+        <option value="Toys">Toys</option>
+      </select>
+
+      <label htmlFor="imageUrl">Image URL</label>
+      <input type="text" id="imageUrl" name="imageUrl" placeholder="Enter image URL" required />
+
+      <label htmlFor="condition">Condition</label>
+      <select id="condition" name="condition" required>
+        <option value="new">New</option>
+        <option value="used">Used</option>
+      </select>
+
+      <label htmlFor="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="1" defaultValue="1" required />
+
+      <label htmlFor="description">Description</label>
+      <textarea id="description" name="description" placeholder="Enter description" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Image -->
+
+  <div className="right-component">
+    <img src="/images/crop-baby-sleeping-near-toys.jpg" alt="Description" className="right-image" />
+  </div>

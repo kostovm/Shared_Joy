@@ -1,0 +1,434 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f0f0f0; /* Background color for the space around the content */
+}
+
+.container {
+  margin: 3vh; /* 10% space from every side */
+  background-color: white;
+  border-radius: 15px; /* Adjust the radius to your preference */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  height: 5vh;
+  padding: 5px;
+}
+  
+  .logo-image {
+    max-height: 100%;
+    width: auto;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  input {
+    padding: 5px;
+    margin-right: 5px;
+  }
+  
+  .round-button {
+    position: relative;
+    width: 30px; /* Adjust the width to your preference */
+    height: 30px; /* Adjust the height to your preference */
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .round-button-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .main-content {
+    display: flex;
+    height: 90vh;
+  }
+  
+  .left-container,
+  .right-container {
+    width: 60%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+  }
+  
+  .right-container {
+    width: 40%;
+    background-color: #f0f0f0;
+  }
+
+  /* Homepage components */
+
+  .left-component {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+  .highlighted-text {
+    font-size: 1.5rem;
+    color: #ff5733; /* You can change this color later */
+    text-decoration: underline;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    display: none;
+  }
+  
+  .search-button,
+  .share-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .right-component {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .right-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Catalog and info */
+
+  .catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items to the start of the flex container */
+  }
+  
+  .select-container {
+    width: 100%;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+
+  .filter-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust as needed */
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .filter-button:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+    border-color: #bbb;
+  }
+  
+  .product {
+    position: relative;
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .product-details {
+    text-align: center;
+  }
+  
+  .product-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .product-text {
+    margin: 10px 0;
+  }
+  
+  .star-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .star {
+    font-size: 24px;
+    color: gold;
+    margin: 0 2px;
+  }
+  
+  .notification-circle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .custom-component {
+    height: 100%; /* Adjust as needed */
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+  
+  .first-part,
+  .second-part,
+  .third-part {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .first-part {
+    width: 40%;
+  }
+  
+  .image-part {
+    height: 20%;
+    width: 100%;
+    position: relative;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 80%; /* 80% of the image part height */
+    object-fit: cover;
+  }
+  
+  .star-part {
+    height: 20%; /* 20% of the image part height */
+  }
+  
+  .second-part {
+    width: 60%;
+    justify-content: space-between;
+  }
+  
+  .text-fields {
+    text-align: left;
+    margin: 10px;
+  }
+  
+  .bigger-text {
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold;
+  }
+  
+  .smaller-text {
+    font-size: 14px; /* Adjust as needed */
+  }
+  
+  .third-part {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .requests {
+    margin-bottom: 10px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buttons-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Use a color that fits your design */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .buttons-container button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .login-form {
+    width: 33.33%; /* 1/3 of the container width */
+    background-color: #e0e0e0; /* Darker gray background */
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow */
+  }
+  
+  .login-form h2 {
+    text-align: center;
+  }
+  
+  .login-form label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .login-form p {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .login-form a {
+    color: #0056b3; /* Darker link color */
+  }
+  
+  .login-form a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3; /* Darker button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-form button:hover {
+    background-color: #004080; /* Darker shade on hover */
+  }
+
+  .create-edit-form {
+    width: 33.33%; /* 1/3 of the container width */
+    background-color: #e0e0e0; /* Darker gray background */
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow */
+  }
+  
+  .create-edit-form h2 {
+    text-align: center;
+  }
+  
+  .create-edit-form label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .create-edit-form input,
+  .create-edit-form select,
+  .create-edit-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .create-edit-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3; /* Darker button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .create-edit-form button:hover {
+    background-color: #004080; /* Darker shade on hover */
+  }
+
+  .registration-form {
+  width: 33.33%; /* 1/3 of the container width */
+  background-color: #e0e0e0; /* Darker gray background */
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow */
+}
+
+.registration-form h2 {
+  text-align: center;
+}
+
+.registration-form label {
+  display: block;
+  margin: 10px 0;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.registration-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0056b3; /* Darker button color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.registration-form button:hover {
+  background-color: #004080; /* Darker shade on hover */
+}
