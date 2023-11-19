@@ -59,7 +59,7 @@ function App() {
                     alt="Product"
                     className="product-image"
                   />
-                  <p className="product-text">Product Description</p>
+                  <p className="product-text">Product Information</p>
                   <div className="star-container">
                     <span className="star">&#9733;</span>
                     <span className="star">&#9733;</span>
