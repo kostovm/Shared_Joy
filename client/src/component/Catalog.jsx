@@ -1,4 +1,18 @@
+import { useEffect, useState } from "react"
+import * as productService from '../services/productService'
+import CatalogItem from "./CatalogItem";
+
 export default function Catalog() {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        productService.getAll()
+        .then(result => setProducts(result))
+    }, []);
+
+    console.log(products);
+
     return (
         <div className="main-content">
             <div className="left-container">
@@ -26,41 +40,9 @@ export default function Catalog() {
                         <button className="filter-button">Clear filters</button>
                     </div>
 
-                    <div className="product">
-                        <p className="city">Sofia</p>
-                        <div className="product-details">
-                            <img
-                                src="https://shop.lillydrogerie.bg/media/catalog/product/cache/1d61232755c257eb23e203a98c67893b/1/1/117402-8001090759870_1.jpeg"
-                                alt="Product"
-                                className="product-image"
-                            />
-                            <p className="product-text">Product Description</p>
-                            <div className="star-container">
-                                <span className="star">&#9733;</span>
-                                <span className="star">&#9733;</span>
-                                <span className="star">&#9733;</span>
-                                <span className="star">&#9733;</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product">
-                        <p className="city">Sofia</p>
-                        <div className="product-details">
-                            <img
-                                src="https://shop.lillydrogerie.bg/media/catalog/product/cache/1d61232755c257eb23e203a98c67893b/1/1/117402-8001090759870_1.jpeg"
-                                alt="Product"
-                                className="product-image"
-                            />
-                            <p className="product-text">Product Description</p>
-                            <div className="star-container">
-                                <span className="star">&#9733;</span>
-                                <span className="star">&#9733;</span>
-                                <span className="star">&#9733;</span>
-                                <span className="star">&#9733;</span>
-                            </div>
-                        </div>
-                    </div>
+                        {products.map(product => (
+                            <CatalogItem key={product._id} {...product} />
+                        ))};
 
                 </div>
 

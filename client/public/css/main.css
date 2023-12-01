@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  margin: 3vh; /* 10% space from every side */
+  margin: 1vh; /* 10% space from every side */
   background-color: white;
   border-radius: 15px; /* Adjust the radius to your preference */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
