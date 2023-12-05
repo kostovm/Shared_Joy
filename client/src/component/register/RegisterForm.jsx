@@ -1,8 +1,13 @@
 import { useState } from "react";
+import useForm from "../../hooks/useForm";
 
 export default function RegisterForm() {
 
-    const [formData, setFormData] = useState({
+    const registerSubmitHandler = (e) => {
+        console.log(values)
+    };
+
+    const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
         username: '',
         email: '',
         password: '',
@@ -10,31 +15,14 @@ export default function RegisterForm() {
         city: '',
         neighborhood: '',
         pictureUrl: '',
-    });
+    })
 
-    const changeHandler = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log('Username:', formData.username);
-        console.log('Email:', formData.email);
-        console.log('Password:', formData.password);
-        console.log('rePassword:', formData.rePassword);
-        console.log('City:', formData.city);
-        console.log('Neighborhood:', formData.neighborhood);
-        console.log('Picture URL:', formData.pictureUrl);
-    };
 
     return (
         <>
             <div className="form-container">
-                <form className="registration-form" onSubmit={submitHandler}>
+                <form className="registration-form" onSubmit={onSubmit}>
                     <h2>Register</h2>
                     <label htmlFor="userName">User Name</label>
                     <input
@@ -42,8 +30,8 @@ export default function RegisterForm() {
                         id="userName"
                         name="username"
                         placeholder="Enter user name"
-                        value={formData.username}
-                        onChange={changeHandler}
+                        value={values.username}
+                        onChange={onChange}
                         required />
 
                     <label htmlFor="email">Email</label>
@@ -52,8 +40,8 @@ export default function RegisterForm() {
                         id="email"
                         name="email"
                         placeholder="Enter email"
-                        value={formData.email}
-                        onChange={changeHandler}
+                        value={values.email}
+                        onChange={onChange}
                         required />
 
                     <label htmlFor="password">Password</label>
@@ -61,8 +49,8 @@ export default function RegisterForm() {
                         type="password"
                         id="password" name="password"
                         placeholder="Enter password"
-                        value={formData.password}
-                        onChange={changeHandler}
+                        value={values.password}
+                        onChange={onChange}
                         required />
 
                     <label htmlFor="rePassword">Repeat Password</label>
@@ -71,8 +59,8 @@ export default function RegisterForm() {
                         id="rePassword"
                         name="rePassword"
                         placeholder="Enter your password again"
-                        value={formData.rePassword}
-                        onChange={changeHandler}
+                        value={values.rePassword}
+                        onChange={onChange}
                         required />
 
                     <label htmlFor="city">City</label>
@@ -81,8 +69,8 @@ export default function RegisterForm() {
                         id="city"
                         name="city"
                         placeholder="Enter your city"
-                        value={formData.city}
-                        onChange={changeHandler}
+                        value={values.city}
+                        onChange={onChange}
                         required />
 
                     <label htmlFor="neighborhood">Neighborhood</label>
@@ -91,8 +79,8 @@ export default function RegisterForm() {
                         id="neighborhood"
                         name="neighborhood"
                         placeholder="Enter your neighborhood"
-                        value={formData.neighborhood}
-                        onChange={changeHandler}
+                        value={values.neighborhood}
+                        onChange={onChange}
                         required />
 
                     <label htmlFor="pictureUrl">Picture URL</label>
@@ -101,8 +89,8 @@ export default function RegisterForm() {
                         id="pictureUrl"
                         name="pictureUrl"
                         placeholder="Enter picture URL"
-                        value={formData.pictureUrl}
-                        onChange={changeHandler}
+                        value={values.pictureUrl}
+                        onChange={onChange}
                         required />
 
                     <p>

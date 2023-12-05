@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import * as productService from '../services/productService'
-import CatalogItem from "./CatalogItem";
+import * as productService from '../../services/productService'
+import CatalogItem from "./catalog-item/CatalogItem";
 
 export default function Catalog() {
 
@@ -8,7 +8,7 @@ export default function Catalog() {
 
     useEffect(() => {
         productService.getAll()
-        .then(result => setProducts(result))
+            .then(result => setProducts(result))
     }, []);
 
     console.log(products);
@@ -40,9 +40,9 @@ export default function Catalog() {
                         <button className="filter-button">Clear filters</button>
                     </div>
 
-                        {products.map(product => (
-                            <CatalogItem key={product._id} {...product} />
-                        ))};
+                    {products.map(product => (
+                        <CatalogItem key={product._id} {...product} />
+                    ))};
 
                 </div>
 

@@ -1,27 +1,20 @@
 import React, { useState } from 'react';
+import useForm from '../../hooks/useForm';
 
 export default function CreateForm() {
-    const [formData, setFormData] = useState({
+
+    const createSubmitHandler = (e) => {
+        console.log(values);
+    };
+
+    const { values, onChange, onSubmit } = useForm(createSubmitHandler, {
         productName: '',
-        type: 'Clothes',
+        type: '',
         imageUrl: '',
-        condition: 'new',
+        condition: '',
         quantity: 1,
         description: ''
-    });
-
-    const changeHandler = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log(formData); // You can replace this with your actual submit logic
-    };
+    })
 
     return (
         <div className="main-content">
@@ -30,7 +23,7 @@ export default function CreateForm() {
                 {/* <!-- Your content for the left side --> */}
 
                 <div className="form-container">
-                    <form className="create-edit-form" onSubmit={submitHandler}>
+                    <form className="create-edit-form" onSubmit={onSubmit}>
                         <h2>Create</h2>
                         <label htmlFor="productName">Product Name</label>
                         <input
@@ -39,8 +32,8 @@ export default function CreateForm() {
                             name="productName"
                             placeholder="Enter product name"
                             required
-                            value={formData.productName}
-                            onChange={changeHandler}
+                            value={values.productName}
+                            onChange={onChange}
                         />
 
                         <label htmlFor="type">Type</label>
@@ -48,9 +41,10 @@ export default function CreateForm() {
                             id="type"
                             name="type"
                             required
-                            value={formData.type}
-                            onChange={changeHandler}
+                            value={values.type}
+                            onChange={onChange}
                         >
+                            <option value="" disabled>Select</option>
                             <option value="Clothes">Clothes</option>
                             <option value="Toys">Toys</option>
                         </select>
@@ -62,8 +56,8 @@ export default function CreateForm() {
                             name="imageUrl"
                             placeholder="Enter image URL"
                             required
-                            value={formData.imageUrl}
-                            onChange={changeHandler}
+                            value={values.imageUrl}
+                            onChange={onChange}
                         />
 
                         <label htmlFor="condition">Condition</label>
@@ -71,9 +65,10 @@ export default function CreateForm() {
                             id="condition"
                             name="condition"
                             required
-                            value={formData.condition}
-                            onChange={changeHandler}
+                            value={values.condition}
+                            onChange={onChange}
                         >
+                            <option value="" disabled>Select</option>
                             <option value="new">New</option>
                             <option value="used">Used</option>
                         </select>
@@ -85,8 +80,8 @@ export default function CreateForm() {
                             name="quantity"
                             placeholder="Enter quantity"
                             min="1"
-                            value={formData.quantity}
-                            onChange={changeHandler}
+                            value={values.quantity}
+                            onChange={onChange}
                             required
                         />
 
@@ -96,8 +91,8 @@ export default function CreateForm() {
                             name="description"
                             placeholder="Enter description"
                             rows="4"
-                            value={formData.description}
-                            onChange={changeHandler}
+                            value={values.description}
+                            onChange={onChange}
                             required
                         ></textarea>
 

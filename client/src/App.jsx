@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom"
-import AboutUs from "./component/AboutUs"
-import Catalog from "./component/Catalog"
-import CreateForm from "./component/CreateForm"
-import Header from "./component/Header"
-import HomePage from "./component/HomePage"
-import LoginForm from './component/LoginForm'
-import RegisterForm from "./component/RegisterForm"
+import AboutUs from "./component/about-us/AboutUs"
+import Catalog from "./component/catalog/Catalog"
+import Header from "./component/header/Header"
+import HomePage from "./component/home/HomePage"
+import LoginForm from './component/login/LoginForm'
+import RegisterForm from "./component/register/RegisterForm"
+import CreateForm from "./component/create/CreateForm"
+import Path from "./paths"
 
 function App() {
 
@@ -13,13 +14,14 @@ function App() {
     <div className="container">
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<Catalog />} />
+        <Route path={Path.Home} element={<HomePage />} />
+        <Route path={Path.Catalog} element={<Catalog />} />
         <Route path="/your-offer" element={<Catalog />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/logout" element={<HomePage />} />
-        <Route path="/register" element={<RegisterForm />} />
+        <Route path={Path.About} element={<AboutUs />} />
+        <Route path={Path.Create} element={<CreateForm />} />
+        <Route path={Path.Register} element={<RegisterForm />} />
+        <Route path={Path.Login} element={<LoginForm />} />
+        <Route path={Path.Logout} element={<HomePage />} />
       </Routes>
     </div>
   )

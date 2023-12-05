@@ -1,37 +1,29 @@
 import React, { useState } from 'react';
+import useForm from '../../hooks/useForm';
 
 export default function LoginForm() {
-    const [formData, setFormData] = useState({
+
+    const loginSubmitHandler = (e) => {
+        console.log(values);
+    };
+
+    const { values, onSubmit, onChange } = useForm(loginSubmitHandler, {
         email: '',
         password: '',
-    });
-
-    const changeHandler = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log('Email:', formData.email);
-        console.log('Password:', formData.password);
-    };
+    })
 
     return (
         <>
             <div className="form-container">
-                <form className="login-form" onSubmit={submitHandler}>
+                <form className="login-form" onSubmit={onSubmit}>
                     <h2>Login</h2>
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        value={formData.email}
-                        onChange={changeHandler}
+                        value={values.email}
+                        onChange={onChange}
                         required
                     />
 
@@ -40,8 +32,8 @@ export default function LoginForm() {
                         type="password"
                         id="password"
                         name="password"
-                        value={formData.password}
-                        onChange={changeHandler}
+                        value={values.password}
+                        onChange={onChange}
                         required
                     />
 
