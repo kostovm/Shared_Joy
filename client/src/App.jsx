@@ -11,6 +11,7 @@ import LoginForm from './component/login/LoginForm'
 import RegisterForm from "./component/register/RegisterForm"
 import CreateForm from "./component/create/CreateForm"
 import Logout from './component/logout/Logout'
+import NotFound from "./component/not-found/NotFound"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path={Path.Register} element={<RegisterForm />} />
         <Route path={Path.Login} element={<LoginForm />} />
         <Route path={Path.Logout} element={<Logout />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </AuthProvider>
     </div>
