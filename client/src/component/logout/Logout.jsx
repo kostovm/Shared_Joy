@@ -13,9 +13,9 @@ export default function Logout(){
         authService.logout()
         .then(() => {
             logoutHandler();
-            navigate(Path.Home)
+            navigate(-1)
         })
-        .catch(() => navigate(Path.Home))
+        .catch(() => navigate(-1))
 
     }, [])
 

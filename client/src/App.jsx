@@ -12,6 +12,7 @@ import RegisterForm from "./component/register/RegisterForm"
 import CreateForm from "./component/create/CreateForm"
 import Logout from './component/logout/Logout'
 import NotFound from "./component/not-found/NotFound"
+import AuthGuard from "./component/guards/AuthGuard"
 
 function App() {
 
@@ -24,10 +25,10 @@ function App() {
         <Route path={Path.Catalog} element={<Catalog />} />
         <Route path="/your-offer" element={<Catalog />} />
         <Route path={Path.About} element={<AboutUs />} />
-        <Route path={Path.Create} element={<CreateForm />} />
-        <Route path={Path.Register} element={<RegisterForm />} />
+        <Route path={Path.Create} element={<AuthGuard><CreateForm /></AuthGuard>} />
+        <Route path={Path.Register} element={<AuthGuard><RegisterForm /></AuthGuard>} />
         <Route path={Path.Login} element={<LoginForm />} />
-        <Route path={Path.Logout} element={<Logout />} />
+        <Route path={Path.Logout} element={<AuthGuard><Logout /></AuthGuard>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </AuthProvider>
