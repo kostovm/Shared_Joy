@@ -1,45 +1,52 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from 'react-redux';
-import * as productService from '../../services/productService'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as productService from "../../services/productService";
 import CatalogItem from "./catalog-item/CatalogItem";
+import { setSearchTerm } from "../../redux/actions";
 
 export default function Catalog() {
-
     const dispatch = useDispatch();
     const searchTerm = useSelector((state) => state.searchTerm);
-
-
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
-        category: '',
-        city: '',
-        search: searchTerm
+        category: "",
+        city: "",
+        search: searchTerm,
     });
 
     useEffect(() => {
-        productService.getAll()
-            .then(result => setProducts(result));
+        productService.getAll().then((result) => setProducts(result));
     }, []);
 
     useEffect(() => {
         setFilters((prevFilters) => ({
             ...prevFilters,
-            search: searchTerm
+            search: searchTerm,
         }));
     }, [searchTerm]);
+
+    useEffect(() => {
+        // Cleanup function to clear searchTerm when component unmounts
+        return () => {
+            dispatch(setSearchTerm("")); // Clear searchTerm in Redux state
+        };
+    }, [dispatch]);
 
     const uniqueCities = [...new Set(products.map((product) => product.city))].sort();
 
     const filteredProducts = products.filter((product) => {
         return (
-            (filters.category === '' || product.category === filters.category) &&
-            (filters.city === '' || product.city === filters.city) &&
-            (filters.search === '' || Object.values(product).some(value =>
-                value && typeof value === 'string' && value.toLowerCase().includes(filters.search.toLowerCase())
-            ))
+            (filters.category === "" || product.category === filters.category) &&
+            (filters.city === "" || product.city === filters.city) &&
+            (filters.search === "" ||
+                Object.values(product).some(
+                    (value) =>
+                        value &&
+                        typeof value === "string" &&
+                        value.toLowerCase().includes(filters.search.toLowerCase())
+                ))
         );
     });
-
     return (
         <div className="main-content">
             <div className="left-container">
@@ -72,9 +79,15 @@ export default function Catalog() {
                         </select>
 
                         {/* Clear Filters Button */}
-                        <button className="filter-button" onClick={() => setFilters({ category: '', city: '', search: '' })}>
-                            Clear filters
-                        </button>
+                        {Object.values(filters).some(value => value !== '') && (
+                            <button
+                                className="filter-button"
+                                onClick={() => setFilters({ category: '', city: '', search: '' })}
+                                disabled={Object.values(filters).every(value => value === '')}
+                            >
+                                Clear filters
+                            </button>
+                        )}
 
                         {filters.search !== '' && (
                             <h1>Search results for: {searchTerm}</h1>
