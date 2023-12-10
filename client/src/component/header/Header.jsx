@@ -1,6 +1,9 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from "react-router-dom";
+import { setSearchTerm } from "../../redux/actions";
 import AuthContext from "../../contexts/authContext";
+import Path from "../../paths";
 
 export default function Header() {
 
@@ -8,6 +11,19 @@ export default function Header() {
         isAuthenticated,
         username
     } = useContext(AuthContext);
+
+    const [searchTerm, setSearchTermLocal] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
+    const handleSearch = (e) => {
+        if (searchTerm.trim() !== '') {
+            dispatch(setSearchTerm(searchTerm));
+            navigate(Path.Catalog);
+            setSearchTermLocal('');
+        }
+    };
 
     return (
         <>
@@ -59,8 +75,18 @@ export default function Header() {
 
                 </div>
                 <div className="search-bar">
-                    <input type="text" placeholder="Search..." />
-                    <button className="round-button">
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTermLocal(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleSearch();
+                            }
+                        }}
+                    />
+                    <button className="round-button" onClick={handleSearch}>
                         <img src="/images/loupe.png" alt="Icon" className="round-button-image" />
                     </button>
                 </div>

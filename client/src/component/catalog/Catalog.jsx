@@ -1,26 +1,42 @@
 import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from 'react-redux';
 import * as productService from '../../services/productService'
 import CatalogItem from "./catalog-item/CatalogItem";
 
 export default function Catalog() {
 
+    const dispatch = useDispatch();
+    const searchTerm = useSelector((state) => state.searchTerm);
+
+
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
         category: '',
-        city: ''
+        city: '',
+        search: searchTerm
     });
 
     useEffect(() => {
         productService.getAll()
-            .then(result => setProducts(result))
+            .then(result => setProducts(result));
     }, []);
+
+    useEffect(() => {
+        setFilters((prevFilters) => ({
+            ...prevFilters,
+            search: searchTerm
+        }));
+    }, [searchTerm]);
 
     const uniqueCities = [...new Set(products.map((product) => product.city))].sort();
 
     const filteredProducts = products.filter((product) => {
         return (
             (filters.category === '' || product.category === filters.category) &&
-            (filters.city === '' || product.city === filters.city)
+            (filters.city === '' || product.city === filters.city) &&
+            (filters.search === '' || Object.values(product).some(value =>
+                value && typeof value === 'string' && value.toLowerCase().includes(filters.search.toLowerCase())
+            ))
         );
     });
 
@@ -56,9 +72,13 @@ export default function Catalog() {
                         </select>
 
                         {/* Clear Filters Button */}
-                        <button className="filter-button" onClick={() => setFilters({ category: '', city: '' })}>
+                        <button className="filter-button" onClick={() => setFilters({ category: '', city: '', search: '' })}>
                             Clear filters
                         </button>
+
+                        {filters.search !== '' && (
+                            <h1>Search results for: {searchTerm}</h1>
+                        )}
 
                     </div>
 
