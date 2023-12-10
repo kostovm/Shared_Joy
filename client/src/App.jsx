@@ -26,7 +26,7 @@ function App() {
         <Route path="/your-offer" element={<Catalog />} />
         <Route path={Path.About} element={<AboutUs />} />
         <Route path={Path.Create} element={<AuthGuard><CreateForm /></AuthGuard>} />
-        <Route path={Path.Register} element={<AuthGuard><RegisterForm /></AuthGuard>} />
+        <Route path={Path.Register} element={<RegisterForm />} />
         <Route path={Path.Login} element={<LoginForm />} />
         <Route path={Path.Logout} element={<AuthGuard><Logout /></AuthGuard>} />
         <Route path="*" element={<NotFound />} />

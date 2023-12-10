@@ -1323,8 +1323,6 @@
             "35c62d76-8152-4626-8712-eeb96381bea8": {
                 email: "peter@abv.bg",
                 username: "Peter",
-                city: "Пловдив",
-                neighborhood: "Гроздов пазар",
                 pictureUrl: "https://parish.rcdow.org.uk/hatfieldsouth/wp-content/uploads/sites/209/2013/10/hatfield-south-st-peter.jpg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
@@ -1347,6 +1345,7 @@
             "3564027f-adcd-4425-b2c0-1253d2386c0c": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 productName: "Памперси",
+                category: "Clothes",
                 description: "Подходящи за напикаване и насиране",
                 condition: "1",
                 imageUrl: "https://m.media-amazon.com/images/I/71UB0oZ+ccL._AC_UF1000,1000_QL80_.jpg",
@@ -1356,6 +1355,7 @@
             "c64db398-91cd-487c-b900-86058c0422f8": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 productName: "Дрънкалка",
+                category: "Toys",
                 description: "Да дрънка и да мълчи",
                 condition: "2",
                 imageUrl: "https://www.tradeindia.com/_next/image/?url=https%3A%2F%2Fcpimg.tistatic.com%2F07366559%2Fb%2F4%2FRattle-Bells-Shaking-Baby-Toy.jpg&w=750&q=75",
@@ -1365,6 +1365,7 @@
             "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 productName: "Камера",
+                category: "Toys",
                 description: "Да го гледаш и да се чудиш защо си го направил",
                 condition: "3",
                 imageUrl: "https://i.pcmag.com/imagery/reviews/01szgG5mr7x5xqFnO8xvyQo-1..v1629209217.jpg",
@@ -1374,6 +1375,7 @@
             "18bfdb21-333b-42bd-a32c-c114263f2569": {
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 productName: "Колан",
+                category: "Clothes",
                 description: "Да го биеш келеша",
                 condition: "4",
                 imageUrl: "https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1581100203/400593_AP00T_1000_001_100_0000_Light.jpg",

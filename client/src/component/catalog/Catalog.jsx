@@ -5,13 +5,24 @@ import CatalogItem from "./catalog-item/CatalogItem";
 export default function Catalog() {
 
     const [products, setProducts] = useState([]);
+    const [filters, setFilters] = useState({
+        category: '',
+        city: ''
+    });
 
     useEffect(() => {
         productService.getAll()
             .then(result => setProducts(result))
     }, []);
 
-    console.log(products);
+    const uniqueCities = [...new Set(products.map((product) => product.city))].sort();
+
+    const filteredProducts = products.filter((product) => {
+        return (
+            (filters.category === '' || product.category === filters.category) &&
+            (filters.city === '' || product.city === filters.city)
+        );
+    });
 
     return (
         <div className="main-content">
@@ -21,28 +32,39 @@ export default function Catalog() {
                 <div className="catalog">
 
                     <div className="select-container">
-                        <select className="category-select" defaultValue="defaultCategory">
-                            <option value="defaultCategory" disabled>Choose a category</option>
-                            <option value="clothes">Clothes</option>
-                            <option value="toys">Toys</option>
+
+                        <select className="category-select" id="category"
+                            name="category"
+                            value={filters.category}
+                            onChange={(e) => setFilters({ ...filters, category: e.target.value })}>
+                            <option value="">All Categories</option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Toys">Toys</option>
                         </select>
 
-                        <select className="city-select" defaultValue="defaultCity">
-                            <option value="defaultCity" disabled>Choose City</option>
-                            <option value="sofia">Sofia</option>
-                            <option value="burgas">Burgas</option>
+                        <select className="city-select" id="city"
+                            name="city"
+                            value={filters.city}
+                            onChange={(e) => setFilters({ ...filters, city: e.target.value })}
+                        >
+                            <option value="">All Cities</option>
+                            {uniqueCities.map((city) => (
+                                <option key={city} value={city}>
+                                    {city}
+                                </option>
+                            ))}
                         </select>
-
-                        {/* Show Button */}
-                        <button className="filter-button">Show</button>
 
                         {/* Clear Filters Button */}
-                        <button className="filter-button">Clear filters</button>
+                        <button className="filter-button" onClick={() => setFilters({ category: '', city: '' })}>
+                            Clear filters
+                        </button>
+
                     </div>
 
-                    {products.map(product => (
+                    {filteredProducts.map(product => (
                         <CatalogItem key={product._id} {...product} />
-                    ))};
+                    ))}
 
                 </div>
 
