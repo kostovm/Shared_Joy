@@ -1350,6 +1350,7 @@
                 condition: "1",
                 imageUrl: "https://m.media-amazon.com/images/I/71UB0oZ+ccL._AC_UF1000,1000_QL80_.jpg",
                 city: "София",
+                requestedBy: ["847ec027-f659-4086-8032-5173e2f9c93a"],
                 _id: "3564027f-adcd-4425-b2c0-1253d2386c0c"
             },
             "c64db398-91cd-487c-b900-86058c0422f8": {
@@ -1360,6 +1361,7 @@
                 condition: "2",
                 imageUrl: "https://www.tradeindia.com/_next/image/?url=https%3A%2F%2Fcpimg.tistatic.com%2F07366559%2Fb%2F4%2FRattle-Bells-Shaking-Baby-Toy.jpg&w=750&q=75",
                 city: "Пловдив",
+                requestedBy: ["847ec027-f659-4086-8032-5173e2f9c93a", "60f0cf0b-34b0-4abd-9769-8c42f830dffc"],
                 _id: "c64db398-91cd-487c-b900-86058c0422f8"
             },
             "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
@@ -1370,6 +1372,7 @@
                 condition: "3",
                 imageUrl: "https://i.pcmag.com/imagery/reviews/01szgG5mr7x5xqFnO8xvyQo-1..v1629209217.jpg",
                 city: "Каспичан",
+                requestedBy: ["35c62d76-8152-4626-8712-eeb96381bea8"],
                 _id: "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"
             },
             "18bfdb21-333b-42bd-a32c-c114263f2569": {
@@ -1380,6 +1383,7 @@
                 condition: "4",
                 imageUrl: "https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1581100203/400593_AP00T_1000_001_100_0000_Light.jpg",
                 city: "Павликени",
+                requestedBy: ["35c62d76-8152-4626-8712-eeb96381bea8"],
                 _id: "18bfdb21-333b-42bd-a32c-c114263f2569"
             },
         }

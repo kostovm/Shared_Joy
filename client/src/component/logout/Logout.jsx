@@ -15,7 +15,10 @@ export default function Logout(){
             logoutHandler();
             navigate(-1)
         })
-        .catch(() => navigate(-1))
+        .catch(() => {
+            logoutHandler();
+            navigate(-1)
+        })
 
     }, [])
 

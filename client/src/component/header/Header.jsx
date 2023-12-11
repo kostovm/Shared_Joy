@@ -74,6 +74,13 @@ export default function Header() {
                     )}
 
                 </div>
+
+                {isAuthenticated && (
+                    <Link to="/create">
+                        <button className="create-button">Create</button>
+                    </Link>
+                )}
+
                 <div className="search-bar">
                     <input
                         type="text"

@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AuthContext from '../../../contexts/authContext'
 
 export default function CatalogItem({
+  _ownerId,
   city,
   imageUrl,
   productName,
-  condition
+  condition,
+  requestedBy
 }) {
-  // Generate an array with stars based on the condition
   const stars = Array.from({ length: condition }, (_, index) => (
     <span key={index} className="star">&#9733;</span>
   ));
+
+  const { userId } = useContext(AuthContext);
+  const requestCount = requestedBy.length;
+  const requestedByUser = requestedBy.includes(userId)
 
   return (
     <div className="product">
       <p className="city">{city}</p>
       <div className="product-details">
+        {/* Red circle with a number */}
+        {requestCount > 0 && _ownerId === userId && (
+          <div className="request-badge">{requestCount}</div>
+        )}
+
         <img
           src={imageUrl}
           alt="Product"
@@ -24,6 +35,11 @@ export default function CatalogItem({
         <div className="star-container">
           {stars}
         </div>
+
+        {/* Gray label with text "Requested" */}
+        {requestedByUser && (
+          <div className="request-label">Requested</div>
+        )}
       </div>
     </div>
   );
