@@ -1351,6 +1351,7 @@
                 quantity: 95,
                 imageUrl: "https://m.media-amazon.com/images/I/71UB0oZ+ccL._AC_UF1000,1000_QL80_.jpg",
                 city: "София",
+                address: 'Обеля, бл. 116',
                 requestedBy: [
                     {
                         username: 'Ivanov24',
@@ -1378,6 +1379,7 @@
                 quantity: 2,
                 imageUrl: "https://www.tradeindia.com/_next/image/?url=https%3A%2F%2Fcpimg.tistatic.com%2F07366559%2Fb%2F4%2FRattle-Bells-Shaking-Baby-Toy.jpg&w=750&q=75",
                 city: "Пловдив",
+                address: 'Столипиново',
                 requestedBy: [
                     {
                         username: 'Petkana',
@@ -1398,6 +1400,7 @@
                 quantity: 1,
                 imageUrl: "https://i.pcmag.com/imagery/reviews/01szgG5mr7x5xqFnO8xvyQo-1..v1629209217.jpg",
                 city: "Каспичан",
+                address: "Калугерица",
                 requestedBy: [
                     {
                         username: 'Peter',
@@ -1418,6 +1421,7 @@
                 quantity: 1,
                 imageUrl: "https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1581100203/400593_AP00T_1000_001_100_0000_Light.jpg",
                 city: "Павликени",
+                address: 'Гробищен парк',
                 requestedBy: [
                     {
                         username: 'Peter',

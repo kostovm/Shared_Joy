@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import * as productService from '../../../services/productService';
 import AuthContext from '../../../contexts/authContext';
 import UserInfoModal from '../../user-info-modal/UserInfoModal';
+import MapComponent from '../../map-component/MapComponent';
 
 export default function DetailsComponent({ productId }) {
     const { userId, isAuthenticated } = useContext(AuthContext);
@@ -29,12 +30,12 @@ export default function DetailsComponent({ productId }) {
     ));
 
     const clickUserInfoHandler = (requester) => {
-            setRequesterInfo(requester)
-            if (showUserInfoModal=== false){
-                setShowInfoModal(true)
-            } else {
-                setShowInfoModal(false)
-            }
+        setRequesterInfo(requester)
+        if (showUserInfoModal === false) {
+            setShowInfoModal(true)
+        } else {
+            setShowInfoModal(false)
+        }
     }
 
     return (
@@ -93,6 +94,9 @@ export default function DetailsComponent({ productId }) {
                                 <p>Login to request this item</p>
                             )}
                         </div>
+                        {isAuthenticated && !isOwner && (
+                            <MapComponent {...product} />
+                        )}
                     </div>
                 </div>
             )}
