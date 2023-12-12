@@ -23,7 +23,6 @@ function App() {
       <Routes>
         <Route path={Path.Home} element={<HomePage />} />
         <Route path={Path.Catalog} element={<Catalog />} />
-        <Route path="/your-offer" element={<Catalog />} />
         <Route path={Path.About} element={<AboutUs />} />
         <Route path={Path.Create} element={<AuthGuard><CreateForm /></AuthGuard>} />
         <Route path={Path.Register} element={<RegisterForm />} />

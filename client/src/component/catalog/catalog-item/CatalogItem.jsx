@@ -19,7 +19,6 @@ export default function CatalogItem({
   const requestCount = requestedBy.length;
   const requestedByUser = requestedBy.some((requester) => requester.requesterId === userId);
 
-
   return (
       <div className="product">
         <p className="city">{city}</p>

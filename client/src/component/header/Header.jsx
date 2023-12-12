@@ -36,15 +36,9 @@ export default function Header() {
 
                 <div className="nav-buttons">
 
-                    <Link to="/products">
+                    <Link to='/products'>
                         <button>Products</button>
                     </Link>
-
-                    {isAuthenticated && (
-                        <Link to="/your-offer">
-                            <button>Your offers</button>
-                        </Link>
-                    )}
 
                     <Link to="/about-us">
                         <button>About Us</button>
