@@ -6,6 +6,7 @@ import { setSearchTerm } from "../../redux/actions";
 import DetailsComponent from "./details-component/DetailsComponent";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
+import UserInfoModal from "../user-info-modal/UserInfoModal";
 
 export default function Catalog() {
     const dispatch = useDispatch();

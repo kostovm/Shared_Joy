@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import * as productService from '../../../services/productService';
 import AuthContext from '../../../contexts/authContext';
+import UserInfoModal from '../../user-info-modal/UserInfoModal';
 
 export default function DetailsComponent({ productId }) {
     const { userId, isAuthenticated } = useContext(AuthContext);
     const [product, setProduct] = useState({});
     const [requestedBy, setRequestedBy] = useState([]);
+    const [showUserInfoModal, setShowInfoModal] = useState(false);
+    const [requesterInfo, setRequesterInfo] = useState({});
 
     useEffect(() => {
         if (productId !== '') {
@@ -23,7 +26,16 @@ export default function DetailsComponent({ productId }) {
     const requestedByUser = requestedBy.some((requester) => requester.requesterId === userId);
     const stars = Array.from({ length: product.condition }, (_, index) => (
         <span key={index} className="star">&#9733;</span>
-      ));
+    ));
+
+    const clickUserInfoHandler = (requester) => {
+            setRequesterInfo(requester)
+            if (showUserInfoModal=== false){
+                setShowInfoModal(true)
+            } else {
+                setShowInfoModal(false)
+            }
+    }
 
     return (
         <>
@@ -55,14 +67,17 @@ export default function DetailsComponent({ productId }) {
                         {isOwner && (
                             <div className="requests">
                                 <p>Потребители, които искат това:</p>
-                                {requestedBy.map((requester, index) => (
-                                    <div key={index}>
+                                {requestedBy.map((requester) => (
+                                    <div key={requester.requesterId}>
                                         <p>
-                                            <a href='#'>{requester.username}</a>
+                                            <button className='show-info-button' onClick={() => clickUserInfoHandler(requester)}>&#9742; {requester.username}</button>
                                         </p>
                                     </div>
                                 ))}
                             </div>
+                        )}
+                        {showUserInfoModal && (
+                            <UserInfoModal onClick={clickUserInfoHandler} requesterInfo={requesterInfo} />
                         )}
                         <div className="buttons-container">
                             {isAuthenticated ? (

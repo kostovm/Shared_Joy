@@ -71,7 +71,7 @@ export default function Header() {
 
                 {isAuthenticated && (
                     <Link to="/create">
-                        <button className="create-button">Create</button>
+                        <button className="create-button">&#127873; Create</button>
                     </Link>
                 )}
 
