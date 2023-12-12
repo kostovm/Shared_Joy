@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import * as productService from "../../services/productService";
 import CatalogItem from "./catalog-item/CatalogItem";
 import { setSearchTerm } from "../../redux/actions";
+import DetailsComponent from "./details-component/DetailsComponent";
+import { useParams  } from "react-router-dom";
 
 export default function Catalog() {
     const dispatch = useDispatch();
@@ -13,6 +15,9 @@ export default function Catalog() {
         city: "",
         search: searchTerm,
     });
+
+    const params = useParams();
+    const productId = params['*'];
 
     useEffect(() => {
         productService.getAll().then((result) => setProducts(result));
@@ -26,9 +31,8 @@ export default function Catalog() {
     }, [searchTerm]);
 
     useEffect(() => {
-        // Cleanup function to clear searchTerm when component unmounts
         return () => {
-            dispatch(setSearchTerm("")); // Clear searchTerm in Redux state
+            dispatch(setSearchTerm(""));
         };
     }, [dispatch]);
 
@@ -47,6 +51,7 @@ export default function Catalog() {
                 ))
         );
     });
+
     return (
         <div className="main-content">
             <div className="left-container">
@@ -106,58 +111,13 @@ export default function Catalog() {
             <div className="right-container">
                 {/* <!-- Your content for the right side --> */}
 
-                <div className="custom-component">
-                    {/* First Part */}
-                    <div className="first-part">
-                        <div className="image-part">
-                            <img
-                                src="https://shop.lillydrogerie.bg/media/catalog/product/cache/2761e3db3ed07158c8e69f4f03a996b0/1/1/117402-8001090759870_1.jpeg"
-                                alt="Product Image"
-                                className="product-image"
-                            />
-                        </div>
-                        <div className="star-part">
-                            <span className="star">&#9733;</span>
-                            <span className="star">&#9733;</span>
-                            <span className="star">&#9733;</span>
-                            <span className="star">&#9733;</span>
-                        </div>
+                {productId === '' || productId === '*' && (
+                    <div className="right-component">
+                        <img src="/images/babyThings.jpg" alt="Description" className="right-image" />
                     </div>
+                )}
 
-                    {/* Second Part */}
-                    <div className="second-part">
-                        <div className="text-fields">
-                            <p className="bigger-text">Pampers ampers dampers hahahahahahah</p>
-                            <p className="smaller-text">Sofia</p>
-                        </div>
-                    </div>
-
-                    {/* Third Part */}
-                    <div className="third-part">
-                        <p>Description: Some text</p>
-                        <p>Quantity: Some text</p>
-                        <p>More information: Some longer longer longer longer text</p>
-                        <div className="requests">
-                            <p>
-                                <a href="#">UserName</a>
-                            </p>
-                            <p>Phone Number: 08995647474</p>
-                            <p>Email: mi@gmail.com</p>
-                        </div>
-                        <div className="requests">
-                            <p>
-                                <a href="#">UserName2</a>
-                            </p>
-                            <p>Phone Number: 089464646</p>
-                            <p>Email: msdfsdfi@gmail.com</p>
-                        </div>
-                        <div className="buttons-container">
-                            <button>Edit</button>
-                            <button>Remove</button>
-                            <button>Request</button>
-                        </div>
-                    </div>
-                </div>
+                <DetailsComponent productId={productId} />
 
             </div>
         </div>
