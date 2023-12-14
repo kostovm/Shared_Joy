@@ -1,42 +1,69 @@
 import { useContext, useEffect, useState } from 'react';
 import * as productService from '../../../services/productService';
+import * as requestService from '../../../services/requestService'
 import AuthContext from '../../../contexts/authContext';
 import UserInfoModal from '../../user-info-modal/UserInfoModal';
 import MapComponent from '../../map-component/MapComponent';
 
 export default function DetailsComponent({ productId }) {
-    const { userId, isAuthenticated } = useContext(AuthContext);
+    const { userId, username, email, phoneNumber, imageUrl, isAuthenticated } = useContext(AuthContext);
+    const [selectedRequesterId, setSelectedRequesterId] = useState(null);
     const [product, setProduct] = useState({});
-    const [requestedBy, setRequestedBy] = useState([]);
     const [showUserInfoModal, setShowInfoModal] = useState(false);
     const [requesterInfo, setRequesterInfo] = useState({});
+    const [requests, setRequests] = useState([]);
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const productResult = await productService.getOne(productId);
+                setProduct(productResult);
+
+                const requestsResult = await requestService.getRequests(productId);
+                setRequests(requestsResult);
+                setShowInfoModal(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
         if (productId !== '') {
-            productService.getOne(productId)
-                .then((result) => {
-                    setProduct(result);
-                    if (Array.isArray(result.requestedBy)) {
-                        setRequestedBy(result.requestedBy);
-                    }
-                });
+            fetchData();
         }
     }, [productId]);
 
     const isOwner = userId === product._ownerId
-    const requestedByUser = requestedBy.some((requester) => requester.requesterId === userId);
+
     const stars = Array.from({ length: product.condition }, (_, index) => (
         <span key={index} className="star">&#9733;</span>
     ));
 
     const clickUserInfoHandler = (requester) => {
-        setRequesterInfo(requester)
-        if (showUserInfoModal === false) {
-            setShowInfoModal(true)
+        setRequesterInfo(requester);
+        setSelectedRequesterId(requester.requesterId);
+        setShowInfoModal(true);
+    };
+
+    const requestedByUser = Object.values(requests).some((requester) => requester.requesterId === userId);
+
+    const clickRequestHandler = async () => {
+        if (!requestedByUser) {
+            const userInfo = {
+                requesterId: userId,
+                username,
+                email,
+                phoneNumber,
+                imageUrl,
+            };
+
+            await requestService.addRequest(productId, userInfo);
+            setRequests([...requests, userInfo]); // Update the local state immediately
         } else {
-            setShowInfoModal(false)
+            await requestService.removeRequest(productId, userId);
+            const updatedRequests = requests.filter((requester) => requester.requesterId !== userId);
+            setRequests(updatedRequests); // Update the local state immediately
         }
-    }
+    };
 
     return (
         <>
@@ -68,17 +95,29 @@ export default function DetailsComponent({ productId }) {
                         {isOwner && (
                             <div className="requests">
                                 <p>Потребители, които искат това:</p>
-                                {requestedBy.map((requester) => (
+                                {requests.map((requester) => (
                                     <div key={requester.requesterId}>
                                         <p>
-                                            <button className='show-info-button' onClick={() => clickUserInfoHandler(requester)}>&#9742; {requester.username}</button>
+                                            <button
+                                                className='show-info-button'
+                                                onClick={() => clickUserInfoHandler(requester)}
+                                            >
+                                                &#9742; {requester.username}
+                                            </button>
                                         </p>
                                     </div>
                                 ))}
                             </div>
                         )}
+
                         {showUserInfoModal && (
-                            <UserInfoModal onClick={clickUserInfoHandler} requesterInfo={requesterInfo} />
+                            <UserInfoModal
+                                onClick={() => {
+                                    setShowInfoModal(false);
+                                    setSelectedRequesterId(null);
+                                }}
+                                requesterInfo={requesterInfo}
+                            />
                         )}
                         <div className="buttons-container">
                             {isAuthenticated ? (
@@ -88,7 +127,9 @@ export default function DetailsComponent({ productId }) {
                                         <button>Remove</button>
                                     </>
                                 ) : (
-                                    <button>{requestedByUser ? 'Cancel Request' : 'Request'}</button>
+                                    <button onClick={clickRequestHandler}>
+                                        {requestedByUser ? 'Cancel Request' : 'Request'}
+                                    </button>
                                 )
                             ) : (
                                 <p>Login to request this item</p>

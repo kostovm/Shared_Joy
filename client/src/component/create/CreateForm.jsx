@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
 import useForm from '../../hooks/useForm';
+import * as productService from '../../services/productService'
+import { useNavigate } from 'react-router-dom';
+import Path from '../../paths';
 
 export default function CreateForm() {
+    const navigate = useNavigate();
 
-    const createSubmitHandler = (e) => {
-        console.log(values);
+    const createSubmitHandler = async (values) => {
+        try {
+           await productService.create(values);
+            navigate('/products')
+        } catch (error) {
+            console.error('Error during product creation:', error);
+        }
     };
+
 
     const { values, onChange, onSubmit } = useForm(createSubmitHandler, {
         productName: '',
-        type: '',
+        category: '',
         imageUrl: '',
+        city: '',
+        address: '',
         condition: '',
         quantity: 1,
-        description: ''
-    })
+        description: '',
+        requestedBy: []
+    });
+
+    const stars = Array.from({ length: values.condition }, (_, index) => (
+        <span key={index} className="star">&#9733;</span>
+    ));
 
     return (
         <div className="main-content">
@@ -36,12 +53,12 @@ export default function CreateForm() {
                             onChange={onChange}
                         />
 
-                        <label htmlFor="type">Type</label>
+                        <label htmlFor="category">Type</label>
                         <select
-                            id="type"
-                            name="type"
+                            id="category"
+                            name="category"
                             required
-                            value={values.type}
+                            value={values.category}
                             onChange={onChange}
                         >
                             <option value="" disabled>Select</option>
@@ -60,7 +77,29 @@ export default function CreateForm() {
                             onChange={onChange}
                         />
 
-                        <label htmlFor="condition">Condition</label>
+                        <label htmlFor="city">City</label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="Enter city"
+                            required
+                            value={values.city}
+                            onChange={onChange}
+                        />
+
+                        <label htmlFor="address">Address</label>
+                        <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            placeholder="Enter address"
+                            required
+                            value={values.address}
+                            onChange={onChange}
+                        />
+
+                        <label htmlFor="condition">Състояние</label>
                         <select
                             id="condition"
                             name="condition"
@@ -68,9 +107,11 @@ export default function CreateForm() {
                             value={values.condition}
                             onChange={onChange}
                         >
-                            <option value="" disabled>Select</option>
-                            <option value="new">New</option>
-                            <option value="used">Used</option>
+                            <option value="" disabled>Избери</option>
+                            <option value="4">Нов</option>
+                            <option value="3">Използван малко</option>
+                            <option value="2">Използван много</option>
+                            <option value="1">Последно използване</option>
                         </select>
 
                         <label htmlFor="quantity">Quantity</label>
@@ -103,57 +144,29 @@ export default function CreateForm() {
             </div>
 
             <div className="right-container">
-                {/* <!-- Your content for the right side --> */}
-                <div className="custom-component">
-                    {/* First Part */}
+            <div className="custom-component">
                     <div className="first-part">
                         <div className="image-part">
                             <img
-                                src="https://shop.lillydrogerie.bg/media/catalog/product/cache/2761e3db3ed07158c8e69f4f03a996b0/1/1/117402-8001090759870_1.jpeg"
+                                src={values.imageUrl}
                                 alt="Product Image"
                                 className="product-image"
                             />
                         </div>
-                        <div className="star-part">
-                            <span className="star">&#9733;</span>
-                            <span className="star">&#9733;</span>
-                            <span className="star">&#9733;</span>
-                            <span className="star">&#9733;</span>
-                        </div>
-                    </div>
-
-                    {/* Second Part */}
-                    <div className="second-part">
                         <div className="text-fields">
-                            <p className="bigger-text">Pampers ampers dampers hahahahahahah</p>
-                            <p className="smaller-text">Sofia</p>
+                            <p className="bigger-text">{values.productName}</p>
+                            <p className="smaller-text">{values.city}</p>
+                        </div>
+                        <div className="star-part">
+                            <h5>Състояние</h5>
+                            {stars}
                         </div>
                     </div>
 
                     {/* Third Part */}
                     <div className="third-part">
-                        <p>Description: Some text</p>
-                        <p>Quantity: Some text</p>
-                        <p>More information: Some longer longer longer longer text</p>
-                        <div className="requests">
-                            <p>
-                                <a href="#">UserName</a>
-                            </p>
-                            <p>Phone Number: 08995647474</p>
-                            <p>Email: mi@gmail.com</p>
-                        </div>
-                        <div className="requests">
-                            <p>
-                                <a href="#">UserName2</a>
-                            </p>
-                            <p>Phone Number: 089464646</p>
-                            <p>Email: msdfsdfi@gmail.com</p>
-                        </div>
-                        <div className="buttons-container">
-                            <button>Edit</button>
-                            <button>Remove</button>
-                            <button>Request</button>
-                        </div>
+                        <p>Количество: {values.quantity}</p>
+                        <p>Описание на продукта: {values.description}</p>
                     </div>
                 </div>
             </div>

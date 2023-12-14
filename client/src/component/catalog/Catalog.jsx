@@ -6,7 +6,6 @@ import { setSearchTerm } from "../../redux/actions";
 import DetailsComponent from "./details-component/DetailsComponent";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
-import UserInfoModal from "../user-info-modal/UserInfoModal";
 
 export default function Catalog() {
     const dispatch = useDispatch();
@@ -114,7 +113,7 @@ export default function Catalog() {
                     </div>
 
                     {filteredProducts.map((product) => (
-                        <CatalogItem key={product._id} {...product} />
+                        <CatalogItem key={product._id} {...product} productId={productId} />
                     ))}
                 </div>
             </div>

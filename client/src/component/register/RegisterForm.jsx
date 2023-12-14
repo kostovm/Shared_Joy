@@ -4,15 +4,14 @@ import AuthContext from "../../contexts/authContext";
 
 export default function RegisterForm() {
 
-const {registerSubmitHandler} = useContext(AuthContext);
+    const { registerSubmitHandler } = useContext(AuthContext);
 
     const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
         username: '',
         email: '',
+        phoneNumber: '',
         password: '',
         rePassword: '',
-        city: '',
-        neighborhood: '',
         pictureUrl: '',
     })
 
@@ -43,6 +42,16 @@ const {registerSubmitHandler} = useContext(AuthContext);
                         onChange={onChange}
                         required />
 
+                    <label htmlFor="phoneNumber">Phone number</label>
+                    <input
+                        type="text"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        placeholder="Enter phoneNumber"
+                        value={values.phoneNumber}
+                        onChange={onChange}
+                        required />
+
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
@@ -59,26 +68,6 @@ const {registerSubmitHandler} = useContext(AuthContext);
                         name="rePassword"
                         placeholder="Enter your password again"
                         value={values.rePassword}
-                        onChange={onChange}
-                        required />
-
-                    <label htmlFor="city">City</label>
-                    <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        placeholder="Enter your city"
-                        value={values.city}
-                        onChange={onChange}
-                        required />
-
-                    <label htmlFor="neighborhood">Neighborhood</label>
-                    <input
-                        type="text"
-                        id="neighborhood"
-                        name="neighborhood"
-                        placeholder="Enter your neighborhood"
-                        value={values.neighborhood}
                         onChange={onChange}
                         required />
 

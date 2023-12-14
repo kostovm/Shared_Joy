@@ -20,8 +20,8 @@ function App() {
   return (
     <div className="container">
       <AuthProvider>
-      <LoadScript googleMapsApiKey="AIzaSyBXMCIrIIiDsN4Y00G-2Kx3uiZCUMplatU">
       <Header />
+      <LoadScript googleMapsApiKey="AIzaSyBXMCIrIIiDsN4Y00G-2Kx3uiZCUMplatU">
       <Routes>
         <Route path={Path.Home} element={<HomePage />} />
         <Route path={Path.Catalog} element={<Catalog />} />

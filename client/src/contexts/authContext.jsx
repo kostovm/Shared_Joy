@@ -22,15 +22,15 @@ export const AuthProvider = ({ children }) => {
     const registerSubmitHandler = async (values) => {
         const result = await authService.register(
           values.username, 
-          values.email, 
-          values.password, 
-          values.city, 
-          values.neighborhood, 
+          values.email,
+          values.phoneNumber, 
+          values.password,
           values.pictureUrl
           );
     
         setAuth(result)
         localStorage.setItem('accessToken', result.accessToken)
+        localStorage.setItem('auth', JSON.stringify(result));
         navigate(Path.Home);
       };
 
@@ -47,6 +47,8 @@ export const AuthProvider = ({ children }) => {
         username: auth.username || auth.email,
         email: auth.email,
         userId: auth._id,
+        imageUrl: auth.imageUrl,
+        phoneNumber: auth.phoneNumber,
         isAuthenticated: !!auth.accessToken,
     };
 

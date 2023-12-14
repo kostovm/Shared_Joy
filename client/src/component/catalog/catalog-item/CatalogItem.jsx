@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext'
+import * as requestService from '../../../services/requestService'
 import { Link } from 'react-router-dom';
 
 export default function CatalogItem({
@@ -9,21 +10,36 @@ export default function CatalogItem({
   imageUrl,
   productName,
   condition,
-  requestedBy
+  productId
 }) {
+
+  const { userId } = useContext(AuthContext);
+  const [requestedBy, setRequestedBy] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const requests = await requestService.getRequests(_id);
+        setRequestedBy(requests);
+      } catch (error) {
+        console.error('Error fetching requests:', error);
+      }
+    };
+
+    fetchData();
+  }, [productId]);
+
+  const requestCount = requestedBy.length;
+  const requestedByUser = Object.values(requestedBy).some((requester) => requester.requesterId === userId);
+
   const stars = Array.from({ length: condition }, (_, index) => (
     <span key={index} className="star">&#9733;</span>
   ));
-
-  const { userId } = useContext(AuthContext);
-  const requestCount = requestedBy.length;
-  const requestedByUser = requestedBy.some((requester) => requester.requesterId === userId);
 
   return (
       <div className="product">
         <p className="city">{city}</p>
         <div className="product-details">
-          {/* Red circle with a number */}
           {requestCount > 0 && _ownerId === userId && (
             <div className="request-badge">{requestCount}</div>
           )}
