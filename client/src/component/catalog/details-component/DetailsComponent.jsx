@@ -4,14 +4,16 @@ import * as requestService from '../../../services/requestService'
 import AuthContext from '../../../contexts/authContext';
 import UserInfoModal from '../../user-info-modal/UserInfoModal';
 import MapComponent from '../../map-component/MapComponent';
+import { Link, useNavigate } from 'react-router-dom';
 
-export default function DetailsComponent({ productId }) {
+export default function DetailsComponent({ productId, onChange }) {
     const { userId, username, email, phoneNumber, imageUrl, isAuthenticated } = useContext(AuthContext);
     const [selectedRequesterId, setSelectedRequesterId] = useState(null);
     const [product, setProduct] = useState({});
     const [showUserInfoModal, setShowInfoModal] = useState(false);
     const [requesterInfo, setRequesterInfo] = useState({});
     const [requests, setRequests] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,11 +59,24 @@ export default function DetailsComponent({ productId }) {
             };
 
             await requestService.addRequest(productId, userInfo);
-            setRequests([...requests, userInfo]); // Update the local state immediately
+            setRequests([...requests, userInfo]);
+            onChange();
         } else {
             await requestService.removeRequest(productId, userId);
             const updatedRequests = requests.filter((requester) => requester.requesterId !== userId);
-            setRequests(updatedRequests); // Update the local state immediately
+            setRequests(updatedRequests);
+            onChange();
+        }
+    };
+
+    const deleteButtonClickHandler = async () => {
+        const hasConfirmed = window.confirm('Are you sure you want to delete this product?');
+    
+        if (hasConfirmed) {
+            await productService.remove(productId);
+            onChange();  
+
+            navigate('/products');
         }
     };
 
@@ -123,8 +138,10 @@ export default function DetailsComponent({ productId }) {
                             {isAuthenticated ? (
                                 isOwner ? (
                                     <>
-                                        <button>Edit</button>
-                                        <button>Remove</button>
+                                        <Link to={`/edit/${productId}`} state={{ productInfo: product }}>
+                                            <button>Edit</button>
+                                        </Link>
+                                        <button onClick={deleteButtonClickHandler}>Remove</button>
                                     </>
                                 ) : (
                                     <button onClick={clickRequestHandler}>

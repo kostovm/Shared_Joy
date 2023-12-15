@@ -21,25 +21,11 @@ export const create = async (productData) => {
     return result;
 }
 
-// export const addRequest = async (productInfo, userInfo) => {
-//     const updatedRequestedBy = [...productInfo.requestedBy, userInfo];
-  
-//     const updatedInfo = { ...productInfo, requestedBy: updatedRequestedBy };
+export const edit = async (productId, productData) => {
 
-//     try {
-//         const result = await request.put(`${baseUrl}/${productInfo._id}`, updatedInfo);
-//         return result;
-//     } catch (error) {
-//         console.log(error)
-//     }
+    const result = await request.put(`${baseUrl}/${productId}`, productData)
 
-//   };
+    return result;
+}
 
-// export const edit = async (gameId, gameData) => {
-
-//     const result = await request.put(`${baseUrl}/${gameId}`, gameData)
-
-//     return result;
-// }
-
-// export const remove = async (gameId) => request.remove(`${baseUrl}/${gameId}`);
+export const remove = async (productId) => request.remove(`${baseUrl}/${productId}`);

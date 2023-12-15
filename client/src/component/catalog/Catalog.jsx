@@ -12,6 +12,8 @@ export default function Catalog() {
     const searchTerm = useSelector((state) => state.searchTerm);
     const { userId } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
+    const [productChange, setProductChange] = useState(null);
+
     const [filters, setFilters] = useState({
         category: "",
         city: "",
@@ -22,9 +24,18 @@ export default function Catalog() {
     const params = useParams();
     const productId = params["*"];
 
+    const handleProductChange = (productId) => {
+        setProductChange(productId);
+    };
+
     useEffect(() => {
         productService.getAll().then((result) => setProducts(result));
-    }, []);
+        
+        if (productChange) {
+            setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productChange));
+            setProductChange(null);
+          }
+        }, [productChange]);
 
     useEffect(() => {
         setFilters((prevFilters) => ({
@@ -125,7 +136,7 @@ export default function Catalog() {
                     </div>
                 )}
 
-                <DetailsComponent productId={productId} />
+                <DetailsComponent productId={productId} onChange={handleProductChange} />
             </div>
         </div>
     );
