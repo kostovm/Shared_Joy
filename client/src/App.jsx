@@ -15,11 +15,13 @@ import Logout from './component/logout/Logout'
 import NotFound from "./component/not-found/NotFound"
 import AuthGuard from "./component/guards/AuthGuard"
 import EditForm from "./component/edit/EditForm";
+import ErrorBoundary from './component/error-boundary/ErrorBoundary'
 
 function App() {
 
   return (
     <div className="container">
+      <ErrorBoundary>
       <AuthProvider>
       <Header />
       <LoadScript googleMapsApiKey="AIzaSyBXMCIrIIiDsN4Y00G-2Kx3uiZCUMplatU">
@@ -36,6 +38,7 @@ function App() {
       </Routes>
       </LoadScript>
       </AuthProvider>
+      </ErrorBoundary>
     </div>
   )
 }
