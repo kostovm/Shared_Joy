@@ -11,9 +11,13 @@ export default function Catalog() {
     const dispatch = useDispatch();
     const searchTerm = useSelector((state) => state.searchTerm);
     const { userId } = useContext(AuthContext);
+    const params = useParams();
+    const productId = params["*"];
+
     const [products, setProducts] = useState([]);
     const [productChange, setProductChange] = useState(null);
     const [catalogKey, setCatalogKey] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     const [filters, setFilters] = useState({
         category: "",
@@ -22,19 +26,25 @@ export default function Catalog() {
         showOnlyUserOffers: false
     });
 
-    const params = useParams();
-    const productId = params["*"];
-
-    const handleProductChange = (productId) => {
-        setProductChange(productId);
-        setCatalogKey((prevKey) => prevKey + 1); // Increment the key
+    const handleProductChange = (productId, action) => {
+        console.log(productId)
+        console.log(action)
     };
 
     useEffect(() => {
-        productService.getAll().then((result) => setProducts(result));
+        const fetchData = async () => {
+            try {
+                const result = await productService.getAll();
+                setProducts(result);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
         setProductChange(null);
-
-
     }, [productChange]);
 
     useEffect(() => {
@@ -49,6 +59,10 @@ export default function Catalog() {
             dispatch(setSearchTerm(""));
         };
     }, [dispatch]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     const uniqueCities = [...new Set(products.map((product) => product.city))].sort();
 

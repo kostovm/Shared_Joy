@@ -18,6 +18,9 @@ export default function EditForm() {
         description: productInfo.description || '',
     });
 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setValues((prevValues) => ({
@@ -30,10 +33,14 @@ export default function EditForm() {
         e.preventDefault();
 
         try {
+            setLoading(true);
             await productService.edit(productInfo._id, values);
             navigate(`/products/${productInfo._id}`);
         } catch (error) {
             console.error('Error during product update:', error);
+            setError('Error during product update. Please try again later.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -142,7 +149,11 @@ export default function EditForm() {
                             required
                         ></textarea>
 
-                        <button type="submit">Submit</button>
+                        <button type="submit" disabled={loading}>
+                            {loading ? 'Updating...' : 'Submit'}
+                        </button>
+
+                        {error && <div>{error}</div>}
                     </form>
                 </div>
             </div>

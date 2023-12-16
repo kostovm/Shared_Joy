@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import useForm from '../../hooks/useForm';
 import * as productService from '../../services/productService'
 import { useNavigate } from 'react-router-dom';
-import Path from '../../paths';
 
 export default function CreateForm() {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const createSubmitHandler = async (values) => {
         try {
-           await productService.create(values);
-            navigate('/products')
+            setLoading(true);
+            await productService.create(values);
+            navigate('/products');
         } catch (error) {
             console.error('Error during product creation:', error);
+            setError('Error during product creation. Please try again later.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -137,14 +142,18 @@ export default function CreateForm() {
                             required
                         ></textarea>
 
-                        <button type="submit">Submit</button>
+                        <button type="submit" disabled={loading}>
+                            {loading ? 'Creating...' : 'Submit'}
+                        </button>
+
+                        {error && <div>{error}</div>}
                     </form>
                 </div>
 
             </div>
 
             <div className="right-container">
-            <div className="custom-component">
+                <div className="custom-component">
                     <div className="first-part">
                         <div className="image-part">
                             <img

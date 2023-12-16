@@ -13,6 +13,8 @@ export default function DetailsComponent({ productId, onChange }) {
     const [showUserInfoModal, setShowInfoModal] = useState(false);
     const [requesterInfo, setRequesterInfo] = useState({});
     const [requests, setRequests] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +28,9 @@ export default function DetailsComponent({ productId, onChange }) {
                 setShowInfoModal(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
+                setError('Error fetching data. Please try again later.');
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -34,7 +39,7 @@ export default function DetailsComponent({ productId, onChange }) {
         }
     }, [productId]);
 
-    const isOwner = userId === product._ownerId
+    const isOwner = userId === product._ownerId;
 
     const stars = Array.from({ length: product.condition }, (_, index) => (
         <span key={index} className="star">&#9733;</span>
@@ -60,13 +65,13 @@ export default function DetailsComponent({ productId, onChange }) {
 
             await requestService.addRequest(productId, userInfo);
             setRequests([...requests, userInfo]);
-            onChange();
+            onChange(productId, "update");
             navigate(`/products/${productId}`)
         } else {
             await requestService.removeRequest(productId, userId);
             const updatedRequests = requests.filter((requester) => requester.requesterId !== userId);
             setRequests(updatedRequests);
-            onChange();
+            onChange(productId, "update");
             navigate(`/products/${productId}`)
         }
     };
@@ -76,11 +81,19 @@ export default function DetailsComponent({ productId, onChange }) {
     
         if (hasConfirmed) {
             await productService.remove(productId);
-            onChange();  
+            onChange(productId, "delete");  
 
             navigate('/products');
         }
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
 
     return (
         <>
