@@ -61,11 +61,13 @@ export default function DetailsComponent({ productId, onChange }) {
             await requestService.addRequest(productId, userInfo);
             setRequests([...requests, userInfo]);
             onChange();
+            navigate(`/products/${productId}`)
         } else {
             await requestService.removeRequest(productId, userId);
             const updatedRequests = requests.filter((requester) => requester.requesterId !== userId);
             setRequests(updatedRequests);
             onChange();
+            navigate(`/products/${productId}`)
         }
     };
 

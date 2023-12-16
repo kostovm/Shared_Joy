@@ -13,6 +13,7 @@ export default function Catalog() {
     const { userId } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
     const [productChange, setProductChange] = useState(null);
+    const [catalogKey, setCatalogKey] = useState(0);
 
     const [filters, setFilters] = useState({
         category: "",
@@ -26,16 +27,15 @@ export default function Catalog() {
 
     const handleProductChange = (productId) => {
         setProductChange(productId);
+        setCatalogKey((prevKey) => prevKey + 1); // Increment the key
     };
 
     useEffect(() => {
         productService.getAll().then((result) => setProducts(result));
-        
-        if (productChange) {
-            setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productChange));
-            setProductChange(null);
-          }
-        }, [productChange]);
+        setProductChange(null);
+
+
+    }, [productChange]);
 
     useEffect(() => {
         setFilters((prevFilters) => ({
@@ -124,7 +124,11 @@ export default function Catalog() {
                     </div>
 
                     {filteredProducts.map((product) => (
-                        <CatalogItem key={product._id} {...product} productId={productId} />
+                        <CatalogItem
+                            key={`${product._id}-${catalogKey}`} // Use a unique key for each CatalogItem
+                            {...product}
+                            productId={productId}
+                        />
                     ))}
                 </div>
             </div>
