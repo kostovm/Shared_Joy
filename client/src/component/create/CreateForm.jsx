@@ -30,8 +30,7 @@ export default function CreateForm() {
         address: '',
         condition: '',
         quantity: 1,
-        description: '',
-        requestedBy: []
+        description: ''
     });
 
     const stars = Array.from({ length: values.condition }, (_, index) => (
@@ -67,8 +66,14 @@ export default function CreateForm() {
                             onChange={onChange}
                         >
                             <option value="" disabled>Select</option>
-                            <option value="Clothes">Clothes</option>
-                            <option value="Toys">Toys</option>
+                            <option value="Дрехи">Дрехи</option>
+                            <option value="Играчки">Играчки</option>
+                            <option value="Храна">Храна</option>
+                            <option value="Консумативи">Консумативи</option>
+                            <option value="Книги">Книги</option>
+                            <option value="Уреди">Уреди</option>
+                            <option value="Мебели">Мебели</option>
+                            <option value="Колички и столчета за кола">Колички и столчета за кола</option>
                         </select>
 
                         <label htmlFor="imageUrl">Image URL</label>

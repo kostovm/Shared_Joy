@@ -12,10 +12,8 @@ export default function RegisterForm() {
         phoneNumber: '',
         password: '',
         rePassword: '',
-        pictureUrl: '',
+        imageUrl: '',
     })
-
-
 
     return (
         <>
@@ -55,7 +53,8 @@ export default function RegisterForm() {
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
-                        id="password" name="password"
+                        id="password" 
+                        name="password"
                         placeholder="Enter password"
                         value={values.password}
                         onChange={onChange}
@@ -74,10 +73,10 @@ export default function RegisterForm() {
                     <label htmlFor="pictureUrl">Picture URL</label>
                     <input
                         type="url"
-                        id="pictureUrl"
-                        name="pictureUrl"
+                        id="imageUrl"
+                        name="imageUrl"
                         placeholder="Enter picture URL"
-                        value={values.pictureUrl}
+                        value={values.imageUrl}
                         onChange={onChange}
                         required />
 

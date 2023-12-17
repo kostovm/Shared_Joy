@@ -4,7 +4,7 @@ import AuthContext from '../../contexts/authContext';
 
 export default function LoginForm() {
 
-const {loginSubmitHandler} = useContext(AuthContext);
+    const { loginSubmitHandler, error } = useContext(AuthContext);
 
     const { values, onSubmit, onChange } = useForm(loginSubmitHandler, {
         email: '',
@@ -35,6 +35,8 @@ const {loginSubmitHandler} = useContext(AuthContext);
                         onChange={onChange}
                         required
                     />
+
+                    {error && <div className="error-message">{error}</div>}
 
                     <p>
                         Don't have an account? <a href="#">Register</a>

@@ -1346,94 +1346,103 @@
             "3564027f-adcd-4425-b2c0-1253d2386c0c": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 productName: "Памперси",
-                category: "Clothes",
-                description: "Подходящи за напикаване и насиране",
-                condition: "1",
+                category: "Консумативи",
+                description: "Почтти пълен пакет памперси",
+                condition: "4",
                 quantity: 95,
                 imageUrl: "https://m.media-amazon.com/images/I/71UB0oZ+ccL._AC_UF1000,1000_QL80_.jpg",
                 city: "София",
                 address: 'Обеля, бл. 116',
-                requestedBy: [
-                    {
-                        username: 'Ivanov24',
-                        email: 'ivan-ivanov@gmail.com',
-                        phoneNumber: '0888666555444',
-                        imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/gettyimages-526962706-1533653622.jpg?crop=1.00xw:0.631xh;0,0.0397xh&resize=980:*',
-                        requesterId: 'hasd867-ajhsdu-ansd732'
-                    },
-                    {
-                        username: 'Petkana',
-                        email: 'petkana@abv.bg',
-                        phoneNumber: '08995564737373',
-                        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Quentin_Matsys_-_A_Grotesque_old_woman.jpg/640px-Quentin_Matsys_-_A_Grotesque_old_woman.jpg',
-                        requesterId: 'ghhty65-hgasd6-ahgsda6-666'
-                    }
-                ],
                 _id: "3564027f-adcd-4425-b2c0-1253d2386c0c"
             },
             "c64db398-91cd-487c-b900-86058c0422f8": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 productName: "Дрънкалка",
-                category: "Toys",
-                description: "Да дрънка и да мълчи",
+                category: "Играчки",
+                description: "Подходяща за деца от 3 до 18 месеца",
                 condition: "2",
-                quantity: 2,
+                quantity: 3,
                 imageUrl: "https://www.tradeindia.com/_next/image/?url=https%3A%2F%2Fcpimg.tistatic.com%2F07366559%2Fb%2F4%2FRattle-Bells-Shaking-Baby-Toy.jpg&w=750&q=75",
                 city: "Пловдив",
                 address: 'Столипиново',
-                requestedBy: [
-                    {
-                        username: 'Petkana',
-                        email: 'petkana@abv.bg',
-                        phoneNumber: '08995564737373',
-                        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Quentin_Matsys_-_A_Grotesque_old_woman.jpg/640px-Quentin_Matsys_-_A_Grotesque_old_woman.jpg',
-                        requesterId: 'ghhty65-hgasd6-ahgsda6-666'
-                    }
-                ],
                 _id: "c64db398-91cd-487c-b900-86058c0422f8"
             },
             "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 productName: "Камера",
-                category: "Toys",
-                description: "Да го гледаш и да се чудиш защо си го направил",
+                category: "Уреди",
+                description: "Видео и аудио наблюдение на бебето",
                 condition: "3",
-                quantity: 1,
+                quantity: 2,
                 imageUrl: "https://i.pcmag.com/imagery/reviews/01szgG5mr7x5xqFnO8xvyQo-1..v1629209217.jpg",
                 city: "Каспичан",
                 address: "Калугерица",
-                requestedBy: [
-                    {
-                        username: 'Peter',
-                        email: 'peter@abv.bg',
-                        phoneNumber: '0889556677',
-                        imageUrl: 'https://parish.rcdow.org.uk/hatfieldsouth/wp-content/uploads/sites/209/2013/10/hatfield-south-st-peter.jpg',
-                        requesterId: '35c62d76-8152-4626-8712-eeb96381bea8'
-                    }
-                ],
                 _id: "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"
             },
             "18bfdb21-333b-42bd-a32c-c114263f2569": {
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-                productName: "Колан",
+                productName: "Играчки",
                 category: "Clothes",
-                description: "Да го биеш келеша",
+                description: "Плюшено мече, използвано само от едно дете досега",
                 condition: "4",
-                quantity: 1,
-                imageUrl: "https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1581100203/400593_AP00T_1000_001_100_0000_Light.jpg",
+                quantity: 3,
+                imageUrl: "https://image.harrods.com/harrods-freddie-teddy-bear-31cm_16740692_32840767_1000.jpg",
                 city: "Павликени",
                 address: 'Гробищен парк',
-                requestedBy: [
-                    {
-                        username: 'Peter',
-                        email: 'peter@abv.bg',
-                        phoneNumber: '0889556677',
-                        imageUrl: 'https://parish.rcdow.org.uk/hatfieldsouth/wp-content/uploads/sites/209/2013/10/hatfield-south-st-peter.jpg',
-                        requesterId: '35c62d76-8152-4626-8712-eeb96381bea8'
-                    }
-                ],
                 _id: "18bfdb21-333b-42bd-a32c-c114263f2569"
             },
+            "17beaa9c-235a-4905-bb9a-188cccd3f75d": {
+                _ownerId: "1ccce305-511f-4a14-a6be-590d896844ce",
+                productName: "\"Правилата на бебешкия мозък\"",
+                category: "Книги",
+                imageUrl: "https://www.book.store.bg/lrgimg/254521/pravilata-na-bebeshkia-mozyk.jpg",
+                city: "София",
+                address: "Захарна фабрика",
+                condition: "3",
+                quantity: 1,
+                description: "Една от най-добрите книги за правилно отглеждане на умни и щастливи деца.",
+                _createdOn: 1702829873388,
+                _id: "17beaa9c-235a-4905-bb9a-188cccd3f75d"
+            },
+            "7df38541-e685-4c3e-bc36-0146d15e52c8": {
+                _ownerId: "1ccce305-511f-4a14-a6be-590d896844ce",
+                productName: "Детска количка",
+                category: "Колички и столчета за кола",
+                imageUrl: "https://moebebe.com/media/catalog/product/cache/52860f287f84b586117ca5f4fa724ae7/b/e/bebeshka-kolichka-2v1-quick-3-0-black-chrome-muuvo-3.jpg",
+                city: "Бургас",
+                address: "Ветрен",
+                condition: "2",
+                quantity: 1,
+                description: "Лятна детска количка.",
+                _createdOn: 1702830025314,
+                _id: "7df38541-e685-4c3e-bc36-0146d15e52c8"
+            },
+            "7b336763-1cc8-40ba-9cfc-e2cac7acb668": {
+                _ownerId: "1ccce305-511f-4a14-a6be-590d896844ce",
+                productName: "Детско легло",
+                category: "Мебели",
+                imageUrl: "https://mycbs4.com/resources/media/f5f6f2d7-770b-42ee-aedc-c79cdcd11f9e-full36x25_66601238_2302471096640343_2840054309960286208_n.jpg?1563229731674",
+                city: "Елин Пелин",
+                address: "Гара Елин Пелин",
+                condition: "1",
+                quantity: 1,
+                description: "Легло на което често е лягано.",
+                _createdOn: 1702830672372,
+                _id: "7b336763-1cc8-40ba-9cfc-e2cac7acb668"
+            },
+            "62134c14-7b6f-4430-a0c5-f940222f1ec3": {
+                _ownerId: "1ccce305-511f-4a14-a6be-590d896844ce",
+                productName: "Детски чорапи",
+                category: "Дрехи",
+                imageUrl: "https://target.scene7.com/is/image/Target/GUEST_f1ff7b7a-d771-4eee-86cb-35c39984b618?wid=488&hei=488&fmt=pjpeg",
+                city: "Благоевград",
+                address: "Грамада",
+                condition: "2",
+                quantity: "6",
+                description: "Чорапи за бъдещи фенове на Хари Потър.",
+                _createdOn: 1702830787700,
+                _id: "62134c14-7b6f-4430-a0c5-f940222f1ec3"
+            }
         }
     };
     var rules$1 = {

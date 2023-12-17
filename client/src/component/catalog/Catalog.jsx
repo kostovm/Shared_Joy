@@ -27,8 +27,9 @@ export default function Catalog() {
     });
 
     const handleProductChange = (productId, action) => {
-        console.log(productId)
-        console.log(action)
+        if (action === "delete") {
+            setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+        }
     };
 
     useEffect(() => {
@@ -44,8 +45,7 @@ export default function Catalog() {
         };
 
         fetchData();
-        setProductChange(null);
-    }, [productChange]);
+    }, []);
 
     useEffect(() => {
         setFilters((prevFilters) => ({
@@ -93,8 +93,14 @@ export default function Catalog() {
                             value={filters.category}
                             onChange={(e) => setFilters({ ...filters, category: e.target.value })}>
                             <option value="">All Categories</option>
-                            <option value="Clothes">Clothes</option>
-                            <option value="Toys">Toys</option>
+                            <option value="Дрехи">Дрехи</option>
+                            <option value="Играчки">Играчки</option>
+                            <option value="Храна">Храна</option>
+                            <option value="Консумативи">Консумативи</option>
+                            <option value="Книги">Книги</option>
+                            <option value="Уреди">Уреди</option>
+                            <option value="Мебели">Мебели</option>
+                            <option value="Колички и столчета за кола">Колички и столчета за кола</option>
                         </select>
 
                         <select className="city-select" id="city"
