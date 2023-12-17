@@ -10,7 +10,8 @@ export default function CatalogItem({
   imageUrl,
   productName,
   condition,
-  productId
+  productId,
+  stateChanges
 }) {
   const { userId } = useContext(AuthContext);
   const [requestedBy, setRequestedBy] = useState([]);
@@ -28,7 +29,7 @@ export default function CatalogItem({
     };
 
     fetchData();
-  }, [productId, _id]);
+  }, [productId, stateChanges]);
 
   const requestCount = requestedBy.length;
   const requestedByUser = Object.values(requestedBy).some(

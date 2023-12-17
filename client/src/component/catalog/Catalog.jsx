@@ -15,8 +15,7 @@ export default function Catalog() {
     const productId = params["*"];
 
     const [products, setProducts] = useState([]);
-    const [productChange, setProductChange] = useState(null);
-    const [catalogKey, setCatalogKey] = useState(0);
+    const [stateChanges, setStateChanges] = useState(0);
     const [loading, setLoading] = useState(true);
 
     const [filters, setFilters] = useState({
@@ -29,6 +28,11 @@ export default function Catalog() {
     const handleProductChange = (productId, action) => {
         if (action === "delete") {
             setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+        }
+        if(action === 'update'){
+            let changes = stateChanges;
+            changes++
+            setStateChanges(changes)
         }
     };
 
@@ -145,9 +149,10 @@ export default function Catalog() {
 
                     {filteredProducts.map((product) => (
                         <CatalogItem
-                            key={`${product._id}-${catalogKey}`} // Use a unique key for each CatalogItem
+                            key={`${product._id}`}
                             {...product}
                             productId={productId}
+                            stateChanges={stateChanges}
                         />
                     ))}
                 </div>
