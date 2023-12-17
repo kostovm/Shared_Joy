@@ -1,0 +1,68 @@
+.mainContent {
+    display: flex;
+    height: 90vh;
+  }
+
+  .leftContainer,
+  .rightContainer {
+    width: 70%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items to the start of the flex container */
+  }
+
+  .selectContainer {
+    width: 100%;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+
+  .filterButton {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust as needed */
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .filterButton {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust as needed */
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .rightContainer {
+    width: 30%;
+    background-color: #67a5d1;
+  }
+
+  .rightComponent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rightImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

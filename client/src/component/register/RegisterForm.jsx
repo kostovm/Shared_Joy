@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
+import styles from './RegisterForm.module.css';
 
 export default function RegisterForm() {
 
@@ -17,8 +18,8 @@ export default function RegisterForm() {
 
     return (
         <>
-            <div className="form-container">
-                <form className="registration-form" onSubmit={onSubmit}>
+            <div className={styles.formContainer}>
+                <form className={styles.registrationForm} onSubmit={onSubmit}>
                     <h2>Register</h2>
                     <label htmlFor="userName">User Name</label>
                     <input
@@ -88,7 +89,7 @@ export default function RegisterForm() {
                 </form>
             </div>
 
-            <div className="main-content">
+            <div className={styles.mainContent}>
 
 
             </div>

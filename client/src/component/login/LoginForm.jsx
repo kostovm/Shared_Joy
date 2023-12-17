@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import useForm from '../../hooks/useForm';
 import AuthContext from '../../contexts/authContext';
+import styles from './LoginForm.module.css';
 
 export default function LoginForm() {
 
@@ -13,8 +14,8 @@ export default function LoginForm() {
 
     return (
         <>
-            <div className="form-container">
-                <form className="login-form" onSubmit={onSubmit}>
+            <div className={styles.formContainer}>
+                <form className={styles.loginForm} onSubmit={onSubmit}>
                     <h2>Login</h2>
                     <label htmlFor="email">Email</label>
                     <input
@@ -36,7 +37,7 @@ export default function LoginForm() {
                         required
                     />
 
-                    {error && <div className="error-message">{error}</div>}
+                    {error && <div className={styles.errorMessage}>{error}</div>}
 
                     <p>
                         Don't have an account? <a href="#">Register</a>
@@ -46,7 +47,7 @@ export default function LoginForm() {
                 </form>
             </div>
 
-            <div className="main-content">
+            <div className={styles.mainContent}>
 
 
             </div>

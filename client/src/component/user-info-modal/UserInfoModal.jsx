@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styles from './UserInfoModal.module.css';
 
 export default function UserInfoModal({ onClick, requesterInfo }) {
   useEffect(() => {
@@ -16,9 +17,9 @@ export default function UserInfoModal({ onClick, requesterInfo }) {
   }, [onClick]);
 
   return (
-    <div className="user-modal">
-      <img src={requesterInfo.imageUrl} alt="User" className="user-image" />
-      <div className="user-details">
+    <div className={styles.userModal}>
+      <img src={requesterInfo.imageUrl} alt="User" className={styles.userImage} />
+      <div className={styles.userDetails}>
         <p>
           <strong>Username:</strong> {requesterInfo.username}
         </p>
@@ -29,7 +30,7 @@ export default function UserInfoModal({ onClick, requesterInfo }) {
           <strong>Phone Number:</strong> {requesterInfo.phoneNumber}
         </p>
       </div>
-      <button className="cancel-button" onClick={onClick}>
+      <button className={styles.cancelButton} onClick={onClick}>
         Cancel
       </button>
     </div>

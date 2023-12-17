@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useForm from '../../hooks/useForm';
 import * as productService from '../../services/productService'
 import { useNavigate } from 'react-router-dom';
+import styles from './CreateForm.module.css';
 
 export default function CreateForm() {
     const navigate = useNavigate();
@@ -34,17 +35,17 @@ export default function CreateForm() {
     });
 
     const stars = Array.from({ length: values.condition }, (_, index) => (
-        <span key={index} className="star">&#9733;</span>
+        <span key={index} className={styles.star}>&#9733;</span>
     ));
 
     return (
-        <div className="main-content">
+        <div className={styles.mainContent}>
 
-            <div className="left-container">
+            <div className={styles.leftContainer}>
                 {/* <!-- Your content for the left side --> */}
 
-                <div className="form-container">
-                    <form className="create-edit-form" onSubmit={onSubmit}>
+                <div className={styles.formContainer}>
+                    <form className={styles.createEditForm} onSubmit={onSubmit}>
                         <h2>Create</h2>
                         <label htmlFor="productName">Product Name</label>
                         <input
@@ -157,28 +158,28 @@ export default function CreateForm() {
 
             </div>
 
-            <div className="right-container">
-                <div className="custom-component">
-                    <div className="first-part">
-                        <div className="image-part">
+            <div className={styles.rightContainer}>
+                <div className={styles.customComponent}>
+                    <div className={styles.firstPart}>
+                        <div className={styles.imagePart}>
                             <img
                                 src={values.imageUrl}
                                 alt="Product Image"
-                                className="product-image"
+                                className={styles.productImage}
                             />
                         </div>
-                        <div className="text-fields">
-                            <p className="bigger-text">{values.productName}</p>
-                            <p className="smaller-text">{values.city}</p>
+                        <div className={styles.textFields}>
+                            <p className={styles.biggerText}>{values.productName}</p>
+                            <p className={styles.smallerText}>{values.city}</p>
                         </div>
-                        <div className="star-part">
+                        <div className={styles.starPart}>
                             <h5>Състояние</h5>
                             {stars}
                         </div>
                     </div>
 
                     {/* Third Part */}
-                    <div className="third-part">
+                    <div className={styles.thirdPart}>
                         <p>Количество: {values.quantity}</p>
                         <p>Описание на продукта: {values.description}</p>
                     </div>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../contexts/authContext';
 import * as requestService from '../../../services/requestService';
 import { Link } from 'react-router-dom';
+import styles from './CatalogItem.module.css';
 
 export default function CatalogItem({
   _id,
@@ -10,7 +11,6 @@ export default function CatalogItem({
   imageUrl,
   productName,
   condition,
-  productId,
   stateChanges
 }) {
   const { userId } = useContext(AuthContext);
@@ -29,7 +29,7 @@ export default function CatalogItem({
     };
 
     fetchData();
-  }, [productId, stateChanges]);
+  }, [stateChanges]);
 
   const requestCount = requestedBy.length;
   const requestedByUser = Object.values(requestedBy).some(
@@ -37,26 +37,26 @@ export default function CatalogItem({
   );
 
   const stars = Array.from({ length: condition }, (_, index) => (
-    <span key={index} className="star">&#9733;</span>
+    <span key={index} className={styles.star}>&#9733;</span>
   ));
 
   if (error) {
-    return <div className="product">{error}</div>;
+    return <div className={styles.product}>{error}</div>;
   }
 
   return (
-    <div className="product">
-      <p className="city">{city}</p>
-      <div className="product-details">
+    <div className={styles.product}>
+      <p className={styles.city}>{city}</p>
+      <div className={styles.productDetails}>
         {requestCount > 0 && _ownerId === userId && (
-          <div className="request-badge">{requestCount}</div>
+          <div className={styles.requestBadge}>{requestCount}</div>
         )}
-        <Link to={`/products/${_id}`} className="product-link">
-          <img src={imageUrl} alt="Product" className="product-image" />
+        <Link to={`/products/${_id}`} className={styles.productLink}>
+          <img src={imageUrl} alt="Product" className={styles.productImage} />
         </Link>
-        <p className="product-text">{productName}</p>
-        <div className="star-container">{stars}</div>
-        {requestedByUser && <div className="request-label">Requested</div>}
+        <p className={styles.productText}>{productName}</p>
+        <div className={styles.starContainer}>{stars}</div>
+        {requestedByUser && <div className={styles.requestLabel}>Requested</div>}
       </div>
     </div>
   );

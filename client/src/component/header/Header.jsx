@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setSearchTerm } from "../../redux/actions";
 import AuthContext from "../../contexts/authContext";
 import Path from "../../paths";
+import styles from './Header.module.css';
 
 export default function Header() {
 
@@ -20,21 +21,21 @@ export default function Header() {
     const handleSearch = (e) => {
         if (searchTerm.trim() !== '') {
             dispatch(setSearchTerm(searchTerm));
-            navigate(Path.Catalog);
+            navigate('/products');
             setSearchTermLocal('');
         }
     };
 
     return (
         <>
-            <div className="navbar">
-                <div className="logo">
+            <div className={styles.navbar}>
+                <div>
                     <Link to="/">
-                        <img src="/images/logo.png" alt="Logo" className="logo-image" />
+                        <img src="/images/logo.png" alt="Logo" className={styles.logoImage} />
                     </Link>
                 </div>
 
-                <div className="nav-buttons">
+                <div className={styles.navButtons}>
 
                     <Link to='/products'>
                         <button>Products</button>
@@ -71,11 +72,11 @@ export default function Header() {
 
                 {isAuthenticated && (
                     <Link to="/create">
-                        <button className="create-button">&#127873; Create</button>
+                        <button className={styles.createButton}>&#127873; Create</button>
                     </Link>
                 )}
 
-                <div className="search-bar">
+                <div className={styles.searchBar}>
                     <input
                         type="text"
                         placeholder="Search..."
@@ -87,8 +88,8 @@ export default function Header() {
                             }
                         }}
                     />
-                    <button className="round-button" onClick={handleSearch}>
-                        <img src="/images/loupe.png" alt="Icon" className="round-button-image" />
+                    <button className={styles.roundButton} onClick={handleSearch}>
+                        <img src="/images/loupe.png" alt="Icon" className={styles.roundButtonImage} />
                     </button>
                 </div>
             </div>

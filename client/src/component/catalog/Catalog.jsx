@@ -6,6 +6,7 @@ import { setSearchTerm } from "../../redux/actions";
 import DetailsComponent from "./details-component/DetailsComponent";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
+import styles from './Catalog.module.css';
 
 export default function Catalog() {
     const dispatch = useDispatch();
@@ -87,12 +88,12 @@ export default function Catalog() {
     });
 
     return (
-        <div className="main-content">
-            <div className="left-container">
-                <div className="catalog">
-                    <div className="select-container">
+        <div className={styles.mainContent}>
+            <div className={styles.leftContainer}>
+                <div className={styles.catalog}>
+                    <div className={styles.selectContainer}>
 
-                        <select className="category-select" id="category"
+                        <select className={styles.categorySelect} id="category"
                             name="category"
                             value={filters.category}
                             onChange={(e) => setFilters({ ...filters, category: e.target.value })}>
@@ -107,7 +108,7 @@ export default function Catalog() {
                             <option value="Колички и столчета за кола">Колички и столчета за кола</option>
                         </select>
 
-                        <select className="city-select" id="city"
+                        <select className={styles.citySelect} id="city"
                             name="city"
                             value={filters.city}
                             onChange={(e) => setFilters({ ...filters, city: e.target.value })}
@@ -137,7 +138,7 @@ export default function Catalog() {
 
                         {Object.values(filters).some((value) => (value !== "" && value !== false)) && (
                             <button
-                                className="filter-button"
+                                className={styles.filterButton}
                                 onClick={() => setFilters({ category: "", city: "", search: "", showOnlyUserOffers: false })}
                             >
                                 Clear filters
@@ -158,10 +159,10 @@ export default function Catalog() {
                 </div>
             </div>
 
-            <div className="right-container">
+            <div className={styles.rightContainer}>
                 {productId === "" && (
-                    <div className="right-component">
-                        <img src="/images/babyThings.jpg" alt="Description" className="right-image" />
+                    <div className={styles.rightComponent}>
+                        <img src="/images/babyThings.jpg" alt="Description" className={styles.rightImage} />
                     </div>
                 )}
 

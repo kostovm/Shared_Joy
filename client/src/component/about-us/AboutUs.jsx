@@ -1,8 +1,11 @@
+import React from 'react';
+import styles from './AboutUs.module.css';
+
 export default function AboutUs() {
     return (
-        <div className="main-content">
+        <div className={styles.mainContent}>
 
-            <div className="left-container">
+            <div className={styles.leftContainer}>
                 {/* <!-- Your content for the left side --> */}
 
                 <h1>About us</h1>
@@ -13,7 +16,7 @@ export default function AboutUs() {
 
             </div>
 
-            <div className="right-container">
+            <div className={styles.rightContainer}>
                 {/* <!-- Your content for the right side --> */}
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sapiente doloribus veritatis ipsam laborum officiis autem. Ratione dignissimos, molestiae non minus sit corporis blanditiis nemo, libero, esse eveniet doloremque? Delectus!</p>

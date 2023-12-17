@@ -5,6 +5,7 @@ import AuthContext from '../../../contexts/authContext';
 import UserInfoModal from '../../user-info-modal/UserInfoModal';
 import MapComponent from '../../map-component/MapComponent';
 import { Link, useNavigate } from 'react-router-dom';
+import styles from './DetailsComponent.module.css';
 
 export default function DetailsComponent({ productId, onChange }) {
     const { userId, username, email, phoneNumber, imageUrl, isAuthenticated } = useContext(AuthContext);
@@ -42,7 +43,7 @@ export default function DetailsComponent({ productId, onChange }) {
     const isOwner = userId === product._ownerId;
 
     const stars = Array.from({ length: product.condition }, (_, index) => (
-        <span key={index} className="star">&#9733;</span>
+        <span key={index} className={styles.star}>&#9733;</span>
     ));
 
     const clickUserInfoHandler = (requester) => {
@@ -98,38 +99,38 @@ export default function DetailsComponent({ productId, onChange }) {
     return (
         <>
             {productId !== '' && (
-                <div className="custom-component">
+                <div className={styles.customComponent}>
                     {/* First Part */}
-                    <div className="first-part">
-                        <div className="image-part">
+                    <div className={styles.firstPart}>
+                        <div className={styles.imagePart}>
                             <img
                                 src={product.imageUrl}
                                 alt="Product Image"
-                                className="product-image"
+                                className={styles.productImage}
                             />
                         </div>
-                        <div className="text-fields">
-                            <p className="bigger-text">{product.productName}</p>
-                            <p className="smaller-text">{product.city}</p>
+                        <div className={styles.textFields}>
+                            <p className={styles.biggerText}>{product.productName}</p>
+                            <p className={styles.smallerText}>{product.city}</p>
                         </div>
-                        <div className="star-part">
+                        <div className={styles.starPart}>
                             <h5>Състояние</h5>
                             {stars}
                         </div>
                     </div>
 
                     {/* Third Part */}
-                    <div className="third-part">
+                    <div className={styles.thirdPart}>
                         <p>Количество: {product.quantity}</p>
                         <p>Описание на продукта: {product.description}</p>
                         {isOwner && (
-                            <div className="requests">
+                            <div className={styles.requests}>
                                 <p>Потребители, които искат това:</p>
                                 {requests.map((requester) => (
                                     <div key={requester.requesterId}>
                                         <p>
                                             <button
-                                                className='show-info-button'
+                                                className={styles.showInfoButton}
                                                 onClick={() => clickUserInfoHandler(requester)}
                                             >
                                                 &#9742; {requester.username}
@@ -149,7 +150,7 @@ export default function DetailsComponent({ productId, onChange }) {
                                 requesterInfo={requesterInfo}
                             />
                         )}
-                        <div className="buttons-container">
+                        <div className={styles.buttonsContainer}>
                             {isAuthenticated ? (
                                 isOwner ? (
                                     <>

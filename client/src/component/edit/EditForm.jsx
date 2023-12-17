@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as productService from '../../services/productService';
 import { useNavigate, useLocation } from 'react-router-dom';
+import styles from './EditForm.module.css';
 
 export default function EditForm() {
     const navigate = useNavigate();
@@ -45,14 +46,14 @@ export default function EditForm() {
     };
 
     const stars = Array.from({ length: values.condition }, (_, index) => (
-        <span key={index} className="star">&#9733;</span>
+        <span key={index} className={styles.star}>&#9733;</span>
     ));
 
     return (
-        <div className="main-content">
-            <div className="left-container">
-                <div className="form-container">
-                    <form className="create-edit-form" onSubmit={handleSubmit}>
+        <div className={styles.mainContent}>
+            <div className={styles.leftContainer}>
+                <div className={styles.formContainer}>
+                    <form className={styles.createEditForm} onSubmit={handleSubmit}>
                         <h2>Edit</h2>
                         <label htmlFor="productName">Product Name</label>
                         <input
@@ -74,8 +75,14 @@ export default function EditForm() {
                             onChange={handleChange}
                         >
                             <option value="" disabled>Select</option>
-                            <option value="Clothes">Clothes</option>
-                            <option value="Toys">Toys</option>
+                            <option value="Дрехи">Дрехи</option>
+                            <option value="Играчки">Играчки</option>
+                            <option value="Храна">Храна</option>
+                            <option value="Консумативи">Консумативи</option>
+                            <option value="Книги">Книги</option>
+                            <option value="Уреди">Уреди</option>
+                            <option value="Мебели">Мебели</option>
+                            <option value="Колички и столчета за кола">Колички и столчета за кола</option>
                         </select>
 
                         <label htmlFor="imageUrl">Image URL</label>
@@ -158,27 +165,27 @@ export default function EditForm() {
                 </div>
             </div>
 
-            <div className="right-container">
-                <div className="custom-component">
-                    <div className="first-part">
-                        <div className="image-part">
+            <div className={styles.rightContainer}>
+                <div className={styles.customComponent}>
+                    <div className={styles.firstpart}>
+                        <div className={styles.imagePart}>
                             <img
                                 src={values.imageUrl}
                                 alt="Product Image"
-                                className="product-image"
+                                className={styles.productImage}
                             />
                         </div>
-                        <div className="text-fields">
-                            <p className="bigger-text">{values.productName}</p>
-                            <p className="smaller-text">{values.city}</p>
+                        <div className={styles.textFields}>
+                            <p className={styles.biggerText}>{values.productName}</p>
+                            <p className={styles.smallerText}>{values.city}</p>
                         </div>
-                        <div className="star-part">
+                        <div className={styles.starPart}>
                             {stars}
                         </div>
                     </div>
 
                     {/* Third Part */}
-                    <div className="third-part">
+                    <div className={styles.thirdPart}>
                         <p>Количество: {values.quantity}</p>
                         <p>Описание на продукта: {values.description}</p>
                     </div>
