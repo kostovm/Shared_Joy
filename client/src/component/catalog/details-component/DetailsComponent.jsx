@@ -35,7 +35,7 @@ export default function DetailsComponent({ productId, onChange }) {
                 setError('Error fetching data. Please try again later.');
                 const redirectTimeout = setTimeout(() => {
                     navigate('/products');
-                }, 5000);
+                }, 3000);
     
                 return () => {
                     clearTimeout(redirectTimeout);

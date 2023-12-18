@@ -25,7 +25,7 @@
   .productImage {
     width: 100%;
     max-height: 200px;
-    object-fit:scale-down
+    object-fit: scale-down
   }
 
   .productText {
@@ -64,7 +64,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px; /* Add some space between the button and other elements */
+    margin-top: 10px;
   }
   
   .detailsButton:hover {
