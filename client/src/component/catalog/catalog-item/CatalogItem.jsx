@@ -57,6 +57,11 @@ export default function CatalogItem({
         <p className={styles.productText}>{productName}</p>
         <div className={styles.starContainer}>{stars}</div>
         {requestedByUser && <div className={styles.requestLabel}>Requested</div>}
+        
+        {/* New "Details >>>" button */}
+        <Link to={`/products/${_id}`} className={styles.detailsButton}>
+          Details &gt;&gt;&gt;
+        </Link>
       </div>
     </div>
   );

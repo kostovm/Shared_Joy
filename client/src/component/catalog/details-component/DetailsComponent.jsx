@@ -21,24 +21,34 @@ export default function DetailsComponent({ productId, onChange }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // Clear previous error state
+                setError(null);
+    
                 const productResult = await productService.getOne(productId);
                 setProduct(productResult);
-
+    
                 const requestsResult = await requestService.getRequests(productId);
                 setRequests(requestsResult);
                 setShowInfoModal(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
                 setError('Error fetching data. Please try again later.');
+                const redirectTimeout = setTimeout(() => {
+                    navigate('/products');
+                }, 5000);
+    
+                return () => {
+                    clearTimeout(redirectTimeout);
+                };
             } finally {
                 setLoading(false);
             }
         };
-
+    
         if (productId !== '') {
             fetchData();
         }
-    }, [productId]);
+    }, [productId, navigate]);
 
     const isOwner = userId === product._ownerId;
 

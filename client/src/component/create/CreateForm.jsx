@@ -160,7 +160,7 @@ export default function CreateForm() {
             <div className={styles.rightContainer}>
                 <h2>Вашето предложение ще изглежда приблизително така:</h2>
                 <div className={styles.customComponent}>
-                    <div className={styles.firstpart}>
+                    <div className={styles.firstPart}>
                         <div className={styles.imagePart}>
                             <img
                                 src={values.imageUrl}
@@ -173,6 +173,7 @@ export default function CreateForm() {
                             <p className={styles.smallerText}>{values.city}</p>
                         </div>
                         <div className={styles.starPart}>
+                            <h5>Състояние</h5>
                             {stars}
                         </div>
                     </div>
