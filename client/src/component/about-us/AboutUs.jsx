@@ -11,7 +11,7 @@ export default function AboutUs() {
   return (
     <div className={styles.mainContent}>
       <div className={styles.leftContainer}>
-        <h1>About us</h1>
+        <h1>Информация за Shared Joy</h1>
         <a href="#" className={styles.infoButtons} onClick={() => handleButtonClick('content1')}>
           Кои сме ние
         </a>

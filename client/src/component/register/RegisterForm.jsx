@@ -21,13 +21,13 @@ export default function RegisterForm() {
         <>
             <div className={styles.formContainer}>
                 <form className={styles.registrationForm} onSubmit={onSubmit}>
-                    <h2>Register</h2>
-                    <label htmlFor="username">User Name</label>
+                    <h2>РЕГИСТРАЦИЯ</h2>
+                    <label htmlFor="username">Потребителско име</label>
                     <input
                         type="text"
                         id="username"
                         name="username"
-                        placeholder="Enter user name"
+                        placeholder="Въведете потребителско име"
                         value={values.username}
                         onChange={onChange}
                         required />
@@ -37,56 +37,56 @@ export default function RegisterForm() {
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="Enter email"
+                        placeholder="Въведете email"
                         value={values.email}
                         onChange={onChange}
                         required />
 
-                    <label htmlFor="phoneNumber">Phone number</label>
+                    <label htmlFor="phoneNumber">Телефон</label>
                     <input
                         type="text"
                         id="phoneNumber"
                         name="phoneNumber"
-                        placeholder="Enter phoneNumber"
+                        placeholder="Въведете телефон"
                         value={values.phoneNumber}
                         onChange={onChange}
                         required />
 
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Парола</label>
                     <input
                         type="password"
                         id="password"
                         name="password"
-                        placeholder="Enter password"
+                        placeholder="Въведете парола"
                         value={values.password}
                         onChange={onChange}
                         required />
 
-                    <label htmlFor="rePassword">Repeat Password</label>
+                    <label htmlFor="rePassword">Повторете паролата</label>
                     <input
                         type="password"
                         id="rePassword"
                         name="rePassword"
-                        placeholder="Enter your password again"
+                        placeholder="Въведете паролата си отново"
                         value={values.rePassword}
                         onChange={onChange}
                         required />
 
-                    <label htmlFor="imageUrl">Picture URL</label>
+                    <label htmlFor="imageUrl">URL на профилното изображение</label>
                     <input
                         type="url"
                         id="imageUrl"
                         name="imageUrl"
-                        placeholder="Enter picture URL"
+                        placeholder="Въведете URL"
                         value={values.imageUrl}
                         onChange={onChange}
                         required />
 
                     <p>
-                        Already have account? <Link to="/login">Login</Link>
+                        Вече имате регистрация? <Link to="/login">Вход</Link>
                     </p>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Изпрати</button>
                 </form>
             </div>
 

@@ -56,11 +56,11 @@ export default function CatalogItem({
         </Link>
         <p className={styles.productText}>{productName}</p>
         <div className={styles.starContainer}>{stars}</div>
-        {requestedByUser && <div className={styles.requestLabel}>Requested</div>}
+        {requestedByUser && <div className={styles.requestLabel}>Поискано</div>}
         
         {/* New "Details >>>" button */}
         <Link to={`/products/${_id}`} className={styles.detailsButton}>
-          Details &gt;&gt;&gt;
+          Още информация &gt;&gt;&gt;
         </Link>
       </div>
     </div>

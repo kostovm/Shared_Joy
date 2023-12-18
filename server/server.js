@@ -1374,7 +1374,7 @@
                 description: "Видео и аудио наблюдение на бебето",
                 condition: "3",
                 quantity: 2,
-                imageUrl: "https://i.pcmag.com/imagery/reviews/01szgG5mr7x5xqFnO8xvyQo-1..v1629209217.jpg",
+                imageUrl: "https://aiko-bg.com/media/catalog/product/cache/ea9648348a0cf4428f9b9bc987761390/0/J/0JbX505t4WIcojcW4tertT5xiM2R3Nf3_96665130017.jpg",
                 city: "Каспичан",
                 address: "Калугерица",
                 _id: "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"

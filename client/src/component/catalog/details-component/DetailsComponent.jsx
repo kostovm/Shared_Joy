@@ -87,7 +87,7 @@ export default function DetailsComponent({ productId, onChange }) {
     };
 
     const deleteButtonClickHandler = async () => {
-        const hasConfirmed = window.confirm('Are you sure you want to delete this product?');
+        const hasConfirmed = window.confirm('Сигурни ли сте, че искате да изтриете този продукт?');
     
         if (hasConfirmed) {
             await productService.remove(productId);
@@ -162,17 +162,17 @@ export default function DetailsComponent({ productId, onChange }) {
                                 isOwner ? (
                                     <>
                                         <Link to={`/edit/${productId}`} state={{ productInfo: product }}>
-                                            <button>Edit</button>
+                                            <button>Редактирай</button>
                                         </Link>
-                                        <button onClick={deleteButtonClickHandler}>Remove</button>
+                                        <button onClick={deleteButtonClickHandler}>Премахни</button>
                                     </>
                                 ) : (
                                     <button onClick={clickRequestHandler}>
-                                        {requestedByUser ? 'Cancel Request' : 'Request'}
+                                        {requestedByUser ? 'Откажи' : 'Поискай'}
                                     </button>
                                 )
                             ) : (
-                                <p>Login to request this item</p>
+                                <p>За да изпратите заявка за този продукт трябва да сте регистрирани и да сте влезли в профила си!</p>
                             )}
                         </div>
                         {isAuthenticated && !isOwner && (

@@ -46,18 +46,18 @@ export default function CreateForm() {
                 <div className={styles.formContainer}>
                     <form className={styles.createEditForm} onSubmit={onSubmit}>
                         <h2>Create</h2>
-                        <label htmlFor="productName">Product Name</label>
+                        <label htmlFor="productName">Име на продукта</label>
                         <input
                             type="text"
                             id="productName"
                             name="productName"
-                            placeholder="Enter product name"
+                            placeholder="Въведете име на продукта"
                             required
                             value={values.productName}
                             onChange={onChange}
                         />
 
-                        <label htmlFor="category">Type</label>
+                        <label htmlFor="category">Категория</label>
                         <select
                             id="category"
                             name="category"
@@ -65,7 +65,7 @@ export default function CreateForm() {
                             value={values.category}
                             onChange={onChange}
                         >
-                            <option value="" disabled>Select</option>
+                            <option value="" disabled>Изберете</option>
                             <option value="Дрехи">Дрехи</option>
                             <option value="Играчки">Играчки</option>
                             <option value="Храна">Храна</option>
@@ -76,34 +76,34 @@ export default function CreateForm() {
                             <option value="Колички и столчета за кола">Колички и столчета за кола</option>
                         </select>
 
-                        <label htmlFor="imageUrl">Image URL</label>
+                        <label htmlFor="imageUrl">URL на изображението</label>
                         <input
                             type="text"
                             id="imageUrl"
                             name="imageUrl"
-                            placeholder="Enter image URL"
+                            placeholder="Въведете URL на изображението"
                             required
                             value={values.imageUrl}
                             onChange={onChange}
                         />
 
-                        <label htmlFor="city">City</label>
+                        <label htmlFor="city">Град</label>
                         <input
                             type="text"
                             id="city"
                             name="city"
-                            placeholder="Enter city"
+                            placeholder="Въведете град"
                             required
                             value={values.city}
                             onChange={onChange}
                         />
 
-                        <label htmlFor="address">Address</label>
+                        <label htmlFor="address">Квартал</label>
                         <input
                             type="text"
                             id="address"
                             name="address"
-                            placeholder="Enter address"
+                            placeholder="Въведете квартал"
                             required
                             value={values.address}
                             onChange={onChange}
@@ -117,30 +117,30 @@ export default function CreateForm() {
                             value={values.condition}
                             onChange={onChange}
                         >
-                            <option value="" disabled>Избери</option>
+                            <option value="" disabled>Изберете</option>
                             <option value="4">Нов</option>
                             <option value="3">Използван малко</option>
                             <option value="2">Използван много</option>
                             <option value="1">Последно използване</option>
                         </select>
 
-                        <label htmlFor="quantity">Quantity</label>
+                        <label htmlFor="quantity">Количество</label>
                         <input
                             type="number"
                             id="quantity"
                             name="quantity"
-                            placeholder="Enter quantity"
+                            placeholder="Въведете количество"
                             min="1"
                             value={values.quantity}
                             onChange={onChange}
                             required
                         />
 
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="description">Описание на продукта</label>
                         <textarea
                             id="description"
                             name="description"
-                            placeholder="Enter description"
+                            placeholder="Въведете описание"
                             rows="4"
                             value={values.description}
                             onChange={onChange}
@@ -148,7 +148,7 @@ export default function CreateForm() {
                         ></textarea>
 
                         <button type="submit" disabled={loading}>
-                            {loading ? 'Creating...' : 'Submit'}
+                            {loading ? 'Създаване...' : 'Изпрати'}
                         </button>
 
                         {error && <div>{error}</div>}

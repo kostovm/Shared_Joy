@@ -55,7 +55,7 @@ export default function EditForm() {
                 <div className={styles.formContainer}>
                     <form className={styles.createEditForm} onSubmit={handleSubmit}>
                         <h2>Edit</h2>
-                        <label htmlFor="productName">Product Name</label>
+                        <label htmlFor="productName">Име на продукта</label>
                         <input
                             type="text"
                             id="productName"
@@ -66,7 +66,7 @@ export default function EditForm() {
                             onChange={handleChange}
                         />
 
-                        <label htmlFor="category">Type</label>
+                        <label htmlFor="category">Категория</label>
                         <select
                             id="category"
                             name="category"
@@ -74,7 +74,7 @@ export default function EditForm() {
                             value={values.category}
                             onChange={handleChange}
                         >
-                            <option value="" disabled>Select</option>
+                            <option value="" disabled>Изберете</option>
                             <option value="Дрехи">Дрехи</option>
                             <option value="Играчки">Играчки</option>
                             <option value="Храна">Храна</option>
@@ -85,7 +85,7 @@ export default function EditForm() {
                             <option value="Колички и столчета за кола">Колички и столчета за кола</option>
                         </select>
 
-                        <label htmlFor="imageUrl">Image URL</label>
+                        <label htmlFor="imageUrl">URL на изображението</label>
                         <input
                             type="text"
                             id="imageUrl"
@@ -96,7 +96,7 @@ export default function EditForm() {
                             onChange={handleChange}
                         />
 
-                        <label htmlFor="city">City</label>
+                        <label htmlFor="city">Град</label>
                         <input
                             type="text"
                             id="city"
@@ -107,7 +107,7 @@ export default function EditForm() {
                             onChange={handleChange}
                         />
 
-                        <label htmlFor="address">Address</label>
+                        <label htmlFor="address">Квартал</label>
                         <input
                             type="text"
                             id="address"
@@ -133,7 +133,7 @@ export default function EditForm() {
                             <option value="1">Последно използване</option>
                         </select>
 
-                        <label htmlFor="quantity">Quantity</label>
+                        <label htmlFor="quantity">Количество</label>
                         <input
                             type="number"
                             id="quantity"
@@ -145,7 +145,7 @@ export default function EditForm() {
                             required
                         />
 
-                        <label htmlFor="description">Description</label>
+                        <label htmlFor="description">Описание на продукта</label>
                         <textarea
                             id="description"
                             name="description"
@@ -157,7 +157,7 @@ export default function EditForm() {
                         ></textarea>
 
                         <button type="submit" disabled={loading}>
-                            {loading ? 'Updating...' : 'Submit'}
+                            {loading ? 'Обновяване...' : 'Изпращане'}
                         </button>
 
                         {error && <div>{error}</div>}

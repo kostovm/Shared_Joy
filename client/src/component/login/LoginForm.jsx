@@ -17,7 +17,7 @@ export default function LoginForm() {
         <>
             <div className={styles.formContainer}>
                 <form className={styles.loginForm} onSubmit={onSubmit}>
-                    <h2>Login</h2>
+                    <h2>ВХОД</h2>
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -28,7 +28,7 @@ export default function LoginForm() {
                         required
                     />
 
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Парола</label>
                     <input
                         type="password"
                         id="password"
@@ -41,10 +41,10 @@ export default function LoginForm() {
                     {error && <div className={styles.errorMessage}>{error}</div>}
 
                     <p>
-                        Don't have an account? <Link to="/register">Register</Link>
+                        Все още нямате регистрация? <Link to="/register">Регистрация</Link>
                     </p>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Изпрати</button>
                 </form>
             </div>
 

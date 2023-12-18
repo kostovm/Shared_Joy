@@ -37,21 +37,21 @@ export default function Header() {
                 <div className={styles.navButtons}>
 
                     <Link to='/products'>
-                        <button>Products</button>
+                        <button>Продукти</button>
                     </Link>
 
                     <Link to="/about-us">
-                        <button>About Us</button>
+                        <button>За нас</button>
                     </Link>
 
                     {!isAuthenticated && (
                         <>
                             <Link to="/login">
-                                <button>Login</button>
+                                <button>Вход</button>
                             </Link>
 
                             <Link to="/register">
-                                <button>Register</button>
+                                <button>Регистрация</button>
                             </Link>
                         </>
                     )}
@@ -59,7 +59,7 @@ export default function Header() {
                     {isAuthenticated && (
                         <>
                             <Link to="/logout">
-                                <button>Logout</button>
+                                <button>Изход</button>
                             </Link>
 
                             <span> | {username}</span>
@@ -71,14 +71,14 @@ export default function Header() {
 
                 {isAuthenticated && (
                     <Link to="/create">
-                        <button className={styles.createButton}>&#127873; Create</button>
+                        <button className={styles.createButton}>&#127873; Създай</button>
                     </Link>
                 )}
 
                 <div className={styles.searchBar}>
                     <input
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Търси..."
                         value={searchTerm}
                         onChange={(e) => setSearchTermLocal(e.target.value)}
                         onKeyDown={(e) => {

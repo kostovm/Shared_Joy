@@ -21,17 +21,17 @@ export default function UserInfoModal({ onClick, requesterInfo }) {
       <img src={requesterInfo.imageUrl} alt="User" className={styles.userImage} />
       <div className={styles.userDetails}>
         <p>
-          <strong>Username:</strong> {requesterInfo.username}
+          <strong>Име:</strong> {requesterInfo.username}
         </p>
         <p>
           <strong>Email:</strong> {requesterInfo.email}
         </p>
         <p>
-          <strong>Phone Number:</strong> {requesterInfo.phoneNumber}
+          <strong>Телефон:</strong> {requesterInfo.phoneNumber}
         </p>
       </div>
       <button className={styles.cancelButton} onClick={onClick}>
-        Cancel
+        Затвори
       </button>
     </div>
   );
