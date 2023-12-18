@@ -12,6 +12,7 @@
   .mainContent {
     display: flex;
     height: 90vh;
+    background: url('/images/H0708_01-Stars-Wallpaper-by-LILIPINSO-swatch.jpg') center/cover no-repeat;
   }
 
   .leftContainer,

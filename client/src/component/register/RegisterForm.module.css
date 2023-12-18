@@ -5,7 +5,7 @@
   }
 
   .registrationForm {
-    width: 33.33%;
+    width: 40%;
     background-color: #e0e0e0;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -40,6 +40,11 @@
   
   .registrationForm button:hover {
     background-color: #004080;
+  }
+
+  .mainContent {
+    display: flex;
+    height: 90vh;
   }
 
   .mainContent {

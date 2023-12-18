@@ -1,7 +1,12 @@
 .mainContent {
     display: flex;
     height: 90vh;
+    background: url('/images/H0708_01-Stars-Wallpaper-by-LILIPINSO-swatch.jpg') center/cover no-repeat;
   }
+
+  .largeText {
+    font-size: 60px;
+}
 
   .leftContainer,
   .rightContainer {
@@ -20,27 +25,26 @@
     width: 100%;
     padding: 20px;
   }
-
-  .highlightedText {
-    font-size: 1.5rem;
-    color: #ff5733;
-    text-decoration: underline;
-  }
   
   .buttonContainer {
-    margin-top: 20px;
-    display: none;
-  }
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+}
   
-  .searchButton,
-  .shareButton {
-    background-color: #3498db;
+.searchButton,
+.shareButton {
+    background-color: #98098c;
     color: white;
     border: none;
-    padding: 10px;
-    margin-right: 10px;
+    padding: 50px 150px;
+    margin-top: 10px;
+    margin-right: 100px;
     cursor: pointer;
-  }
+    min-width: 150px;
+    min-height: 40px;
+    font-size: 30px; /* Adjust the font size to your preference */
+}
 
   .rightComponent {
     width: 100%;

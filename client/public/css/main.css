@@ -3,12 +3,12 @@ body {
   font-family: Arial, sans-serif;
   height: 100vh;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: #2e82a0;
 }
 
 .container {
   margin: 1vh;
-  background-color: white;
+  background-color: #2e82a0;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;

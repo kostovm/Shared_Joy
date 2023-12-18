@@ -1,17 +1,18 @@
 .mainContent {
-    display: flex;
-    height: 90vh;
-  }
+  display: flex;
+  height: 90vh;
+  background: url('/images/H0708_01-Stars-Wallpaper-by-LILIPINSO-swatch.jpg') center/cover no-repeat;
+}
 
-  .leftContainer,
-  .rightContainer {
-    width: 70%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 20px;
-  }
-  
-  .rightContainer {
-    width: 30%;
-    background-color: #67a5d1;
-  }
+.leftContainer,
+.rightContainer {
+  width: 70%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.rightContainer {
+  width: 30%;
+  background-color: #67a5d1;
+}

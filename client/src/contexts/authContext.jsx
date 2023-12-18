@@ -20,12 +20,16 @@ export const AuthProvider = ({ children }) => {
     };
 
     const registerSubmitHandler = async (values) => {
+        if(values.password !== values.rePassword){
+            throw new Error('Passwords mismatch!')
+        }
+        
         const result = await authService.register(
           values.username, 
           values.email,
           values.phoneNumber, 
           values.password,
-          values.pictureUrl
+          values.imageUrl
           );
     
         setAuth(result)

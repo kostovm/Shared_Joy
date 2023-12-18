@@ -22,10 +22,10 @@ export default function RegisterForm() {
             <div className={styles.formContainer}>
                 <form className={styles.registrationForm} onSubmit={onSubmit}>
                     <h2>Register</h2>
-                    <label htmlFor="userName">User Name</label>
+                    <label htmlFor="username">User Name</label>
                     <input
                         type="text"
-                        id="userName"
+                        id="username"
                         name="username"
                         placeholder="Enter user name"
                         value={values.username}
@@ -55,7 +55,7 @@ export default function RegisterForm() {
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
-                        id="password" 
+                        id="password"
                         name="password"
                         placeholder="Enter password"
                         value={values.password}
@@ -72,7 +72,7 @@ export default function RegisterForm() {
                         onChange={onChange}
                         required />
 
-                    <label htmlFor="pictureUrl">Picture URL</label>
+                    <label htmlFor="imageUrl">Picture URL</label>
                     <input
                         type="url"
                         id="imageUrl"
@@ -91,7 +91,6 @@ export default function RegisterForm() {
             </div>
 
             <div className={styles.mainContent}>
-
 
             </div>
         </>
