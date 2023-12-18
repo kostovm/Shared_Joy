@@ -21,7 +21,6 @@ export default function DetailsComponent({ productId, onChange }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Clear previous error state
                 setError(null);
     
                 const productResult = await productService.getOne(productId);
@@ -131,7 +130,7 @@ export default function DetailsComponent({ productId, onChange }) {
                     <div className={styles.thirdPart}>
                         <p>Количество: {product.quantity}</p>
                         <p>Описание на продукта: {product.description}</p>
-                        {isOwner && (
+                        {isOwner && requests.length > 0 && (
                             <div className={styles.requests}>
                                 <p>Потребители, които искат това:</p>
                                 {requests.map((requester) => (

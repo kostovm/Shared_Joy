@@ -1381,8 +1381,8 @@
             },
             "18bfdb21-333b-42bd-a32c-c114263f2569": {
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-                productName: "Играчки",
-                category: "Clothes",
+                productName: "Плюшено мече",
+                category: "Играчки",
                 description: "Плюшено мече, използвано само от едно дете досега",
                 condition: "4",
                 quantity: 3,
