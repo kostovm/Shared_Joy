@@ -14,12 +14,12 @@
   .catalog {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Align items to the start of the flex container */
+    justify-content: flex-start;
   }
 
   .selectContainer {
     width: 100%;
-    margin-bottom: 20px; /* Adjust as needed */
+    margin-bottom: 20px;
   }
 
   .filterButton {
@@ -27,11 +27,11 @@
     font-size: 14px;
     font-weight: bold;
     color: #333;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px; /* Adjust as needed */
+    margin-left: 10px;
     transition: background-color 0.3s, border-color 0.3s;
   }
 
@@ -40,11 +40,11 @@
     font-size: 14px;
     font-weight: bold;
     color: #333;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px; /* Adjust as needed */
+    margin-left: 10px;
     transition: background-color 0.3s, border-color 0.3s;
   }
 

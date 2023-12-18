@@ -10,7 +10,7 @@
   }
 
   .customComponent {
-    height: 100%; /* Adjust as needed */
+    height: 100%;
     width: 100%;
     display: flex;
     position: relative;
@@ -37,7 +37,7 @@
 
   .productImage {
     width: 100%;
-    height: 80%; /* 80% of the image part height */
+    height: 80%;
     object-fit: cover;
   }
 
@@ -47,12 +47,12 @@
   }
 
   .biggerText {
-    font-size: 18px; /* Adjust as needed */
+    font-size: 18px;
     font-weight: bold;
   }
   
   .smallerText {
-    font-size: 14px; /* Adjust as needed */
+    font-size: 14px;
   }
 
   .thirdPart {
@@ -86,7 +86,7 @@
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #007bff; /* Use a color that fits your design */
+    background-color: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -94,6 +94,6 @@
   }
   
   .buttonsContainer button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
   }
 

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
 import styles from './RegisterForm.module.css';
+import { Link } from "react-router-dom";
 
 export default function RegisterForm() {
 
@@ -82,7 +83,7 @@ export default function RegisterForm() {
                         required />
 
                     <p>
-                        Already have account? <a href="#">Login</a>
+                        Already have account? <Link to="/login">Login</Link>
                     </p>
 
                     <button type="submit">Submit</button>

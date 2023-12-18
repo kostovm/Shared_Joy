@@ -184,7 +184,6 @@ export default function EditForm() {
                         </div>
                     </div>
 
-                    {/* Third Part */}
                     <div className={styles.thirdPart}>
                         <p>Количество: {values.quantity}</p>
                         <p>Описание на продукта: {values.description}</p>

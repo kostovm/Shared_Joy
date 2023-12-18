@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import useForm from '../../hooks/useForm';
 import AuthContext from '../../contexts/authContext';
 import styles from './LoginForm.module.css';
+import { Link } from 'react-router-dom';
 
 export default function LoginForm() {
 
@@ -40,7 +41,7 @@ export default function LoginForm() {
                     {error && <div className={styles.errorMessage}>{error}</div>}
 
                     <p>
-                        Don't have an account? <a href="#">Register</a>
+                        Don't have an account? <Link to="/register">Register</Link>
                     </p>
 
                     <button type="submit">Submit</button>

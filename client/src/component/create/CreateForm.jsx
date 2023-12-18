@@ -42,7 +42,6 @@ export default function CreateForm() {
         <div className={styles.mainContent}>
 
             <div className={styles.leftContainer}>
-                {/* <!-- Your content for the left side --> */}
 
                 <div className={styles.formContainer}>
                     <form className={styles.createEditForm} onSubmit={onSubmit}>
@@ -178,7 +177,6 @@ export default function CreateForm() {
                         </div>
                     </div>
 
-                    {/* Third Part */}
                     <div className={styles.thirdPart}>
                         <p>Количество: {values.quantity}</p>
                         <p>Описание на продукта: {values.description}</p>

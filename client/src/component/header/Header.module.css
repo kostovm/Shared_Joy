@@ -36,8 +36,8 @@
 
   .roundButton {
     position: relative;
-    width: 30px; /* Adjust the width to your preference */
-    height: 30px; /* Adjust the height to your preference */
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #fff;
     padding: 5px;

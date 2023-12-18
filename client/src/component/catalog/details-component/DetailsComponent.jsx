@@ -100,7 +100,6 @@ export default function DetailsComponent({ productId, onChange }) {
         <>
             {productId !== '' && (
                 <div className={styles.customComponent}>
-                    {/* First Part */}
                     <div className={styles.firstPart}>
                         <div className={styles.imagePart}>
                             <img
@@ -119,7 +118,6 @@ export default function DetailsComponent({ productId, onChange }) {
                         </div>
                     </div>
 
-                    {/* Third Part */}
                     <div className={styles.thirdPart}>
                         <p>Количество: {product.quantity}</p>
                         <p>Описание на продукта: {product.description}</p>

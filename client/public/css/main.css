@@ -3,15 +3,15 @@ body {
   font-family: Arial, sans-serif;
   height: 100vh;
   overflow: hidden;
-  background-color: #f0f0f0; /* Background color for the space around the content */
+  background-color: #f0f0f0;
 }
 
 .container {
-  margin: 1vh; /* 10% space from every side */
+  margin: 1vh;
   background-color: white;
-  border-radius: 15px; /* Adjust the radius to your preference */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  overflow: hidden; /* Hide overflowing content */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
   
   button {
