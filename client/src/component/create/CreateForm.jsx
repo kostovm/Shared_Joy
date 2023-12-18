@@ -3,6 +3,7 @@ import useForm from '../../hooks/useForm';
 import * as productService from '../../services/productService'
 import { useNavigate } from 'react-router-dom';
 import styles from './CreateForm.module.css';
+import PreviewComponent from '../preview-component/PreviewComponent';
 
 export default function CreateForm() {
     const navigate = useNavigate();
@@ -34,9 +35,9 @@ export default function CreateForm() {
         description: ''
     });
 
-    const stars = Array.from({ length: values.condition }, (_, index) => (
-        <span key={index} className={styles.star}>&#9733;</span>
-    ));
+    // const stars = Array.from({ length: values.condition }, (_, index) => (
+    //     <span key={index} className={styles.star}>&#9733;</span>
+    // ));
 
     return (
         <div className={styles.mainContent}>
@@ -158,31 +159,8 @@ export default function CreateForm() {
             </div>
 
             <div className={styles.rightContainer}>
-                <h2>Вашето предложение ще изглежда приблизително така:</h2>
-                <div className={styles.customComponent}>
-                    <div className={styles.firstPart}>
-                        <div className={styles.imagePart}>
-                            <img
-                                src={values.imageUrl}
-                                alt="Product Image"
-                                className={styles.productImage}
-                            />
-                        </div>
-                        <div className={styles.textFields}>
-                            <p className={styles.biggerText}>{values.productName}</p>
-                            <p className={styles.smallerText}>{values.city}</p>
-                        </div>
-                        <div className={styles.starPart}>
-                            <h5>Състояние</h5>
-                            {stars}
-                        </div>
-                    </div>
-
-                    <div className={styles.thirdPart}>
-                        <p>Количество: {values.quantity}</p>
-                        <p>Описание на продукта: {values.description}</p>
-                    </div>
-                </div>
+            <h2>Вашето предложение ще изглежда приблизително така:</h2>
+                <PreviewComponent values={values} />
             </div>
 
         </div>

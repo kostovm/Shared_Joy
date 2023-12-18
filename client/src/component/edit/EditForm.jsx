@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as productService from '../../services/productService';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './EditForm.module.css';
+import PreviewComponent from '../preview-component/PreviewComponent';
 
 export default function EditForm() {
     const navigate = useNavigate();
@@ -167,30 +168,7 @@ export default function EditForm() {
 
             <div className={styles.rightContainer}>
                 <h2>Вашето предложение ще изглежда приблизително така:</h2>
-                <div className={styles.customComponent}>
-                    <div className={styles.firstPart}>
-                        <div className={styles.imagePart}>
-                            <img
-                                src={values.imageUrl}
-                                alt="Product Image"
-                                className={styles.productImage}
-                            />
-                        </div>
-                        <div className={styles.textFields}>
-                            <p className={styles.biggerText}>{values.productName}</p>
-                            <p className={styles.smallerText}>{values.city}</p>
-                        </div>
-                        <div className={styles.starPart}>
-                            <h5>Състояние</h5>
-                            {stars}
-                        </div>
-                    </div>
-
-                    <div className={styles.thirdPart}>
-                        <p>Количество: {values.quantity}</p>
-                        <p>Описание на продукта: {values.description}</p>
-                    </div>
-                </div>
+            <PreviewComponent values={values} />
             </div>
         </div>
     );
