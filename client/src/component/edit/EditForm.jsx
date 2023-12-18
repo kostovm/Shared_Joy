@@ -166,6 +166,7 @@ export default function EditForm() {
             </div>
 
             <div className={styles.rightContainer}>
+                <h2>Вашето предложение ще изглежда приблизително така:</h2>
                 <div className={styles.customComponent}>
                     <div className={styles.firstpart}>
                         <div className={styles.imagePart}>

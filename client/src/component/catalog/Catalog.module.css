@@ -22,26 +22,21 @@
     width: 100%;
     margin-bottom: 20px;
   }
-
-  .filterButton {
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: background-color 0.3s, border-color 0.3s;
+  
+  .categorySelect,
+  .citySelect {
+    font-size: 16px; /* Adjust the font size */
+    padding: 12px; /* Adjust the padding */
+    height: 50px; /* Adjust the height */
+    margin-right: 10px; /* Optional: Add some spacing between the selects */
   }
-
+  
   .filterButton {
-    padding: 8px 12px;
+    padding: 16px 24px;
     font-size: 14px;
     font-weight: bold;
-    color: #333;
-    background-color: #f0f0f0;
+    color: #000000;
+    background-color: red;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;

@@ -31,7 +31,7 @@ export default function HomePage() {
 
             <div className={styles.rightContainer}>
                 <div className={styles.rightComponent}>
-                    <FadeInImage imageUrl={'/images/babyThings.jpg'}/>
+                <FadeInImage imageUrl={'/images/babyThings.jpg'}/>
                 </div>
             </div>
         </div>

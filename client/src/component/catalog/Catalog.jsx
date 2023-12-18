@@ -7,6 +7,7 @@ import DetailsComponent from "./details-component/DetailsComponent";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import styles from './Catalog.module.css';
+import FadeInImage from "../fade-in-image/FadeInImage";
 
 export default function Catalog() {
     const dispatch = useDispatch();
@@ -97,7 +98,7 @@ export default function Catalog() {
                             name="category"
                             value={filters.category}
                             onChange={(e) => setFilters({ ...filters, category: e.target.value })}>
-                            <option value="">All Categories</option>
+                            <option value="">Всички категории</option>
                             <option value="Дрехи">Дрехи</option>
                             <option value="Играчки">Играчки</option>
                             <option value="Храна">Храна</option>
@@ -113,7 +114,7 @@ export default function Catalog() {
                             value={filters.city}
                             onChange={(e) => setFilters({ ...filters, city: e.target.value })}
                         >
-                            <option value="">All Cities</option>
+                            <option value="">Всички градове</option>
                             {uniqueCities.map((city) => (
                                 <option key={city} value={city}>
                                     {city}
@@ -122,7 +123,7 @@ export default function Catalog() {
                         </select>
                         {userId && (
                             <label>
-                                Show only your offers
+                                Виж само своите предложения
                                 <input
                                     type="checkbox"
                                     checked={filters.showOnlyUserOffers}
@@ -141,11 +142,11 @@ export default function Catalog() {
                                 className={styles.filterButton}
                                 onClick={() => setFilters({ category: "", city: "", search: "", showOnlyUserOffers: false })}
                             >
-                                Clear filters
+                                Премахни филтрите
                             </button>
                         )}
 
-                        {filters.search !== "" && <h1>Search results for: {searchTerm}</h1>}
+                        {filters.search !== "" && <h1>Резултати от търсенето на: {searchTerm}</h1>}
                     </div>
 
                     {filteredProducts.map((product) => (
@@ -162,7 +163,7 @@ export default function Catalog() {
             <div className={styles.rightContainer}>
                 {productId === "" && (
                     <div className={styles.rightComponent}>
-                        <img src="/images/babyThings.jpg" alt="Description" className={styles.rightImage} />
+                        <FadeInImage imageUrl={"/images/baby-toys-arrangement-indoors.jpg"}/>
                     </div>
                 )}
 
