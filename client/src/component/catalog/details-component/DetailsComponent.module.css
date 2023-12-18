@@ -14,8 +14,8 @@
     width: 100%;
     display: flex;
     position: relative;
-    border: 2px solid #ddd; /* Border around the entire component */
-    border-radius: 8px; /* Optional: Add rounded corners */
+    border: 10px solid #ed05e5b3; /* Border around the entire component */
+    border-radius: 25px; /* Optional: Add rounded corners */
   }
   
   .firstPart,
@@ -24,7 +24,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    border-right: 2px solid #ddd; /* Border between the parts */
+    /* border-right: 2px solid #ddd; */
   }
   
   .firstPart {
@@ -37,7 +37,7 @@
     height: 20%;
     width: 100%;
     position: relative;
-    border-bottom: 2px solid #ddd; /* Border below the image */
+    border-bottom: 2px solid #ed05e5b3; /* Border below the image */
   }
   
   .textFields {
@@ -49,7 +49,7 @@
     width: 100%;
     height: 80%;
     object-fit: cover;
-    border: 2px solid #ddd; /* Border around the image */
+    border: 2px solid #ed05e5b3; /* Border around the image */
   }
   
   .biggerText {
@@ -75,9 +75,9 @@
     position: relative;
     display: inline-block;
     padding: 8px 16px;
-    background-color: #3498db;
+    background-color: #ed05e5b3;
     color: #fff;
-    border: none;
+    border: solid;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -92,8 +92,8 @@
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
+    color: black;
+    background-color: #ed05e5b3;
     border: none;
     border-radius: 5px;
     cursor: pointer;

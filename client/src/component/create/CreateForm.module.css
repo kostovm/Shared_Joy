@@ -1,139 +1,141 @@
 .starContainer {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .star {
-    font-size: 24px;
-    color: gold;
-    margin: 0 2px;
-  }
+  display: flex;
+  justify-content: center;
+}
 
-  .mainContent {
-    display: flex;
-    height: 90vh;
-    background: url('/images/H0708_01-Stars-Wallpaper-by-LILIPINSO-swatch.jpg') center/cover no-repeat;
-  }
+.star {
+  font-size: 24px;
+  color: gold;
+  margin: 0 2px;
+}
 
-  .leftContainer,
-  .rightContainer {
-    width: 70%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 20px;
-  }
+.mainContent {
+  display: flex;
+  height: 90vh;
+  background: url('/images/H0708_01-Stars-Wallpaper-by-LILIPINSO-swatch.jpg') center/cover no-repeat;
+}
 
-  .formContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
+.leftContainer,
+.rightContainer {
+  width: 70%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
 
-  .createEditForm {
-    width: 50%;
-    background-color: #e0e0e0;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .createEditForm h2 {
-    text-align: center;
-  }
-  
-  .createEditForm label {
-    display: block;
-    margin: 10px 0;
-  }
-  
-  .createEditForm input,
-  .createEditForm select,
-  .createEditForm textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-  }
-  
-  .createEditForm button {
-    width: 100%;
-    padding: 10px;
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .createEditForm button:hover {
-    background-color: #004080;
-  }
+.formContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-  .leftContainer,
-  .rightContainer {
-    width: 70%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 20px;
-  }
-  
-  .rightContainer {
-    width: 30%;
-    background-color: #67a5d1;
-  }
+.createEditForm {
+  width: 50%;
+  background-color: #e0e0e0;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  .customComponent {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    position: relative;
-  }
+.createEditForm h2 {
+  text-align: center;
+}
 
-  .firstPart,
-  .secondPart,
-  .thirdPart {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .firstPart {
-    width: 40%;
-    margin-right: 10%;
-  }
+.createEditForm label {
+  display: block;
+  margin: 10px 0;
+}
 
-  .imagePart {
-    height: 20%;
-    width: 100%;
-    position: relative;
-  }
+.createEditForm input,
+.createEditForm select,
+.createEditForm textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
 
-  .productImage {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-  }
+.createEditForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-  .textFields {
-    text-align: left;
-    margin: 10px;
-  }
+.createEditForm button:hover {
+  background-color: #004080;
+}
 
-  .biggerText {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .smallerText {
-    font-size: 14px;
-  }
+.leftContainer,
+.rightContainer {
+  width: 70%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
 
-  .starPart {
-    height: 20%;
-  }
+.rightContainer {
+  width: 30%;
+  background-color: #67a5d1;
+}
 
-  .thirdPart {
-    width: 100%;
-    margin-top: 10px;
-  }
+.customComponent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
 
+.firstPart,
+.secondPart,
+.thirdPart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #ddd;
+}
+
+.firstPart {
+  width: 40%;
+  margin-right: 10%;
+  padding: 10px;
+}
+
+.imagePart {
+  height: 20%;
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #ddd;
+}
+
+.textFields {
+  text-align: left;
+  margin: 10px;
+}
+
+.productImage {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.biggerText {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.smallerText {
+  font-size: 14px;
+}
+
+.thirdPart {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+}
