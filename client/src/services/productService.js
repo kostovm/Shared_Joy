@@ -16,6 +16,8 @@ export const getOne = async (productId) => {
 
 export const create = async (productData) => {
 
+    console.log(productData);
+
     const result = await request.post(baseUrl, productData)
 
     return result;

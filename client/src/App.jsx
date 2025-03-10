@@ -1,5 +1,4 @@
 import { Routes, Route, useNavigate } from "react-router-dom"
-import { LoadScript } from '@react-google-maps/api';
 
 import Path from "./paths"
 import { AuthProvider } from './contexts/authContext'
@@ -24,7 +23,6 @@ function App() {
       <ErrorBoundary>
       <AuthProvider>
       <Header />
-      <LoadScript googleMapsApiKey="AIzaSyBXMCIrIIiDsN4Y00G-2Kx3uiZCUMplatU">
       <Routes>
         <Route path={Path.Home} element={<HomePage />} />
         <Route path={Path.Catalog} element={<Catalog />} />
@@ -36,7 +34,6 @@ function App() {
         <Route path={Path.Logout} element={<AuthGuard><Logout /></AuthGuard>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      </LoadScript>
       </AuthProvider>
       </ErrorBoundary>
     </div>

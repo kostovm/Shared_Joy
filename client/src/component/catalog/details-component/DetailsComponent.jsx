@@ -9,7 +9,6 @@ import styles from './DetailsComponent.module.css';
 
 export default function DetailsComponent({ productId, onChange }) {
     const { userId, username, email, phoneNumber, imageUrl, isAuthenticated } = useContext(AuthContext);
-    const [selectedRequesterId, setSelectedRequesterId] = useState(null);
     const [product, setProduct] = useState({});
     const [showUserInfoModal, setShowInfoModal] = useState(false);
     const [requesterInfo, setRequesterInfo] = useState({});
@@ -57,7 +56,6 @@ export default function DetailsComponent({ productId, onChange }) {
 
     const clickUserInfoHandler = (requester) => {
         setRequesterInfo(requester);
-        setSelectedRequesterId(requester.requesterId);
         setShowInfoModal(true);
     };
 
@@ -152,7 +150,6 @@ export default function DetailsComponent({ productId, onChange }) {
                             <UserInfoModal
                                 onClick={() => {
                                     setShowInfoModal(false);
-                                    setSelectedRequesterId(null);
                                 }}
                                 requesterInfo={requesterInfo}
                             />
